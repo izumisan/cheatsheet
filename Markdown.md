@@ -1,4 +1,4 @@
-# Markdown
+# Markdown（VSCode向け）
 
 <!-- コメント -->
 
@@ -229,7 +229,7 @@ ___イタリック＋ボールド___
 ジャンプ先です
 </a>
 
-# Image
+## 画像リンク
 
 ```
 ![テキスト](path)
@@ -237,7 +237,7 @@ ___イタリック＋ボールド___
 
 ![オクトキャット](octocat.png)
 
-# Image2（`<img>`）
+## 画像リンク（サイズ指定）（`<img>`）
 
 ```html
 <img width="xxx" height="xxx" src="path"/>
