@@ -91,7 +91,7 @@ public class Hoge
 
 ## アライメント指定
 
-|左寄せ|中央|右寄せ|
+|左寄せ|中央寄せ|右寄せ|
 |:-|:-:|-:|
 |a|b|c|
 |a|b|c|
@@ -123,6 +123,10 @@ summaryタグでタイトルを指定する.
 # アライメント（`<div>`）
 
 Markdown記法でアラインメント指定できないのでhtmlの`<div>`タグで記載する.
+
+```html
+<div style="text-align: center">テキスト</div>
+```
 
 <div style="text-align: left">
 左寄せ
@@ -179,4 +183,65 @@ ___イタリック＋ボールド___
 チルダ2つで取り消し線
 
 ~~取り消し線~~
+
+## 文字色（`<font>`）
+
+```html
+<font color="Red">テキスト</font>
+```
+
+<font color="Red">Red</font>
+
+<font color="Yellow">Yellow</font>
+
+<font color="Blue">Blue</font>
+
+<font color="Green">Green</font>
+
+# リンク
+
+## ハイパーリンク
+
+```
+[ラベル](URL)
+```
+
+[Google](https://www.google.co.jp/)
+
+
+## ページ内リンク（アンカーリンク）
+
+リンク元
+```
+[ラベル](#linkname)
+```
+
+リンク先
+```
+<a id="linkname">
+リンク先
+</a>
+```
+
+[ジャンプします](#linkname)
+
+<a id="linkname">
+ジャンプ先です
+</a>
+
+# Image
+
+```
+![テキスト](path)
+```
+
+![オクトキャット](octocat.png)
+
+# Image2（`<img>`）
+
+```html
+<img width="xxx" height="xxx" src="path"/>
+```
+
+<img width="100" height="100" src="octocat.png"/>
 
