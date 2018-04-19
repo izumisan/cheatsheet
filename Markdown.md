@@ -206,7 +206,7 @@ ___イタリック＋ボールド___
 [ラベル](URL)
 ```
 
-[Google](https://www.google.co.jp/)
+[Googleへのリンク](https://www.google.co.jp/)
 
 
 ## ページ内リンク（アンカーリンク）
@@ -235,7 +235,7 @@ ___イタリック＋ボールド___
 ![テキスト](path)
 ```
 
-![オクトキャット](octocat.png)
+![オクトキャット](images/octocat.png)
 
 ## 画像リンク（サイズ指定）（`<img>`）
 
@@ -243,5 +243,5 @@ ___イタリック＋ボールド___
 <img width="xxx" height="xxx" src="path"/>
 ```
 
-<img width="100" height="100" src="octocat.png"/>
+<img width="100" height="100" src="images/octocat.png"/>
 
