@@ -232,10 +232,11 @@ ___イタリック＋ボールド___
 ## 画像リンク
 
 ```
-![テキスト](path)
+![名称](path)
+![名称](path "タイトル")
 ```
 
-![オクトキャット](images/octocat.png)
+![octocat](images/octocat.png "オクトキャット")
 
 ## 画像リンク（サイズ指定）（`<img>`）
 
@@ -243,5 +244,5 @@ ___イタリック＋ボールド___
 <img width="xxx" height="xxx" src="path"/>
 ```
 
-<img width="100" height="100" src="images/octocat.png"/>
+<img width="100" height="100" src="images/octocat.png" title="100x100"/>
 
