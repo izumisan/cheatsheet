@@ -28,6 +28,13 @@ $$\bold{Y} = \bold{A} \cdot \bold{X}$$ (3)
 
 となる。
 
+## おためし結果
+
+- Markdownで数式をかけるのが良い
+- GitHubで数式レンダリングされない
+- MarkdownPDFも対応していない
+
+
 # 2. 数式を画像ファイルとして挿入する
 
 数式画像サービスを利用して画像ファイルを作成し、Markdownに挿入する.
@@ -40,6 +47,12 @@ $$\bold{Y} = \bold{A} \cdot \bold{X}$$ (3)
 シュレディンガー方程式
 
 ![シュレディンガー方程式](images/schroedinger_eq.png)
+
+## おためし結果
+
+- GitHub, MarkdownPDFに対応している
+- mdファイルだけでなく、画像ファイルも管理する必要がある（お手軽管理のため、1ファイルになっていてほしい）
+- LaTeXコードが残らないので、修正がメンドクサイ（コメントとして別途残す必要がある）
 
 # 3. imageソースに数式画像へのURLリンクを指定する
 
@@ -55,6 +68,12 @@ CODECOGSで数式画像へのURLリンクを生成し、imgソースに生成し
 
 <img src="https://latex.codecogs.com/gif.latex?\bg_white&space;-\frac{\hbar}{i}\frac{\partial&space;\psi}{\partial&space;t}&space;=&space;-\frac{\hbar^2}{2m}&space;\triangle&space;\psi" title="-\frac{\hbar}{i}\frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m} \triangle \psi" />
 
+## おためし結果
+
+- GitHub, MarkdownPDFに対応している
+- 生成したHTMLにLaTeXコードが残っているので、後日修正が可能
+- LaTeXを覚えていなくても、サイトのサポートによりある程度かける
+- オフライン環境では利用できない
 
 # リンク
 
