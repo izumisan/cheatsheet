@@ -102,7 +102,7 @@ push.default設定値
 > git checkout -- <ファイル名1> <ファイル名2> ...
 ```
 
-# コミットに対する操作
+# コミット内容を変更する
 
 ## 直前のコミットメッセージを修正する（git commit -amend）
 
@@ -112,10 +112,16 @@ git commit --amend
 
 上記コマンドで、直前のコミットメッセージを修正するエディタが起動する。
 
+## 過去のコミットを打ち消すコミットを作る（git revert）
+
+```
+git revert <commit>
+```
+
 ## 過去のコミットを修正する（git rebase -i）
 
 ```
-> git rebase -i {commitid}
+> git rebase -i <commit>
 ```
 
 ```
