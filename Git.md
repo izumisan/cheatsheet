@@ -86,6 +86,74 @@ push.default設定値
 > git config --global push.default simple
 ```
 
+# 変更を元に戻す
+
+## ステージングを解除する（git reset）
+
+```
+> git reset
+> git reset HEAD <ファイル名1> <ファイル名2> ...
+```
+
+## 変更を破棄する（git checkout）
+
+```
+> git checkout 
+> git checkout -- <ファイル名1> <ファイル名2> ...
+```
+
+# コミットに対する操作
+
+## 直前のコミットメッセージを修正する（git commit -amend）
+
+```
+git commit --amend
+```
+
+上記コマンドで、直前のコミットメッセージを修正するエディタが起動する。
+
+## 過去のコミットを修正する（git rebase -i）
+
+```
+> git rebase -i {commitid}
+```
+
+```
+# Commands:
+#  p, pick = use commit
+#  r, reword = use commit, but edit the commit message
+#  e, edit = use commit, but stop for amending
+#  s, squash = use commit, but meld into previous commit
+#  f, fixup = like "squash", but discard this commit's log message
+#  x, exec = run command (the rest of the line) using shell
+```
+
+|コマンド|説明|
+|---|---|
+|pick||
+|reword|コミットメッセージを修正する.|
+|edit|コミット自体を編集する.|
+|squash|直前のコミットに統合する. コミットメッセージは残す.|
+|fixup|直前のコミットに統合する. コミットメッセージは破棄する.|
+|exec||
+
+`edit`等でコミット内容を変更した際は、以下のコマンドで変更を保存する.
+
+```
+> git commit --amend
+```
+
+`rebase`を続ける場合は、以下のコマンドを実行する.
+
+```
+> git rebase --continue
+```
+
+`rebase`を中断する場合は、以下のコマンドを実行する.
+```
+> git rebase --abort
+```
+
 # .gitignore
 
 - /を含まない指定（例: hoge）
