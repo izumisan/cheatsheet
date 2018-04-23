@@ -21,6 +21,9 @@
 - Markdown PDF  
     MarkdownからPDFを作成できる
 
+- Markdown Checkboxes  
+    Markdownでチェックボックスを表現できる
+
 - Markdown+Math  
     LaTeXで数式がかける
 
