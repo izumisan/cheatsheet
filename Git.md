@@ -86,16 +86,16 @@ push.default設定値
 > git config --global push.default simple
 ```
 
-# 変更を元に戻す
+# ローカルの変更を元に戻す
 
-## ステージングを解除する（git reset）
+## ステージングを解除する（`git reset`）
 
 ```
 > git reset
 > git reset HEAD <ファイル名1> <ファイル名2> ...
 ```
 
-## 変更を破棄する（git checkout）
+## 変更を破棄する（`git checkout`）
 
 ```
 > git checkout 
@@ -104,28 +104,22 @@ push.default設定値
 
 # コミット内容を変更する
 
-## 直前のコミットを修正する（git commit --amend）
+## 直前のコミットを修正する（`git commit --amend`）
 
 ```
-git commit --amend
+> git commit --amend
 ```
 
 - 直前のコミット内容を修正する場合、修正内容をステージングした後、「--amend」オプションをつけてコミットすると、そのコミットは直前のコミットに統合される.
 - コミットメッセージのみを修正する場合、ステージングが存在しない状況で「commit --amend」すると、エディタが起動し、コミットメッセージを修正することができる。
 
-## 過去のコミットを打ち消すコミットを作る（git revert）
-
-```
-git revert <commit>
-```
-
-## 過去のコミットを修正する（git rebase -i）
+## 過去のコミットを修正する（`git rebase -i`）
 
 ```
 > git rebase -i <commit>
 ```
 
-```
+```bash
 # Commands:
 #  p, pick = use commit
 #  r, reword = use commit, but edit the commit message
@@ -161,6 +155,57 @@ git revert <commit>
 > git rebase --abort
 ```
 
+## 過去のコミットを打ち消すコミットを作る（`git revert`）
+
+```
+> git revert <commit>
+```
+
+# リモート操作
+
+## リモートリポジトリの確認
+
+```
+> git remote -v
+```
+
+## プッシュ
+
+```
+> git push <リモート名> <ローカルブランチ名>:<リモートブランチ名>
+```
+
+- 例： リモート（origin）に対し、ローカルのmasterブランチをリモートのmasterブランチ（origin/master）にプッシュする
+    ```
+    > git push origin master:master
+    ```
+
+- ローカルとリモートでブランチ名が等しい場合、ブランチ名は省略形が使える
+    ```bash
+    # git push origin master:masterの省略形
+    > git push origin master
+    ```
+
+- 引数を省略した場合、リモートは'origin'、ブランチは'master'として解釈（推測）される
+    ```bash
+    # カレントブランチが、origin/masterにプッシュされる
+    > git push
+    ```
+    引数を省略して単に`git push`すると、**カレントブランチ**が**origin/master**にプッシュされてしまうので、configでpushのデフォルト挙動を設定しておいた方が良い.
+
+## リモートリポジトリを登録する
+
+```
+> git remote add <リモート名> <URL>
+```
+
+- 例
+    ```bash
+    # hogeブランチを'origin'という名前（識別子）で、
+    # リモートブランチとして登録する.
+    > git remote add origin https://xxx/xxx/xxx/hoge.git
+    ```
+
 # .gitignore
 
 - /を含まない指定（例: hoge）
@@ -183,9 +228,9 @@ git revert <commit>
 
     gitignore指定を否定する.
 
-## 参考
+## 設定例
 
-```
+```bash
 # 特定の拡張子のファイルを無視する場合は、/をつけない.
 *.obj
 
