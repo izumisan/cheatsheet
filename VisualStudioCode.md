@@ -15,21 +15,39 @@
 
 ## Markdown関連
 
-- Auto-Open Markdown Preview  
-    mdファイルを開くと自動でプレビューを開く
+- ~~Auto-Open Markdown Preview~~
+    - ~~mdファイルを開くと自動でプレビューを開く~~
+    - ファイル比較する時にも自動でプレビューが開くので、便利な場合と邪魔な場合がある
+    - Markdown All in Oneで代用可能
 
-- Markdown PDF  
-    MarkdownからPDFを作成できる
+- Markdown PDF
+    - MarkdownからPDFを作成できる
+    - 数式など、他の拡張機能を使っていると上手くPDF化できない
+    - Markdown Preview Enhancedの方が対応範囲が広い
 
-- Markdown Checkboxes  
-    Markdownでチェックボックスを表現できる
+- ~~Markdown Checkboxes~~
+    - ~~Markdownでチェックボックスを表現できる~~
+    - Markdown All in One, Markdown Preview Enhancedで代用可能
 
-- Markdown+Math  
-    LaTeXで数式がかける
+- ~~Markdown+Math~~
+    -  ~~LaTeXで数式がかける~~  
+    -  Markdown All in One, Markdown Preview Enhancedで代用可能
+
+- **Markdown All in One**
+    - キーボードショートカット、チェックボックス、数式レンダリングなど、いろいろ入っている
+    - 左のエクスプローラー部にOUTLINEが表示されるのが地味に便利.
+
+- **Markdown Preview Enhanced**
+    - チェックボックスや数式レンダリング等に対応
+    - Graphvizやmermaid等、いろいろなダイアグラムに対応している
+    - プレビュー画面はデフォルトのものとは別
+    - [公式ドキュメント](https://shd101wyy.github.io/markdown-preview-enhanced/#/)が充実している 
+
+Markdown関連で、機能ごとに複数の拡張機能をいれたりしていたけど、Markdown All in OneとMarkdown Preview Enhancedの2つさえ入れていれば、Markdown周りはほぼカバーされる.
 
 ## Git関連
 
-- Git History  
+- Git History
 
 - Git Tree Compare
     

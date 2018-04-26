@@ -44,9 +44,6 @@
 - [ ] OFF
 - [x] ON
 
-\* Markdown Checkboxes（拡張機能）が必要.
-
-
 # コードブロック（pre記法）
 
 バッククォート3つ

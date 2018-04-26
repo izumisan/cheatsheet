@@ -2,7 +2,7 @@
 
 - VSCode(Markdown)で数式を書きたい.
 - GitHubプレビューでも表示したい.
-- MarkdownPDF(拡張機能)でPDFファイルにしたい.
+- PDFファイルにしたい.
 
 ので、いくつか試してみた.
 
@@ -12,19 +12,19 @@
 
 オイラーの公式
 
-$$e^{i\theta} = cos\theta + isin\theta$$ (1)
+$$e^{i\theta} = cos\theta + isin\theta$$
 
 $$
 \begin{pmatrix}y_1 \\ y_2\end{pmatrix} = 
 \begin{pmatrix} a && b \\ c && d \end{pmatrix}
 \cdot
 \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}
-$$ (2)
+$$
 
 ここで、
 $\bold{X} = \begin{pmatrix}x_1 \\ x_2\end{pmatrix}$, $\bold{Y} = \begin{pmatrix}y_1 \\ y_2\end{pmatrix}$, $\bold{A}=\begin{pmatrix}a && b \\ c && d\end{pmatrix}$ とすると、
 
-$$\bold{Y} = \bold{A} \cdot \bold{X}$$ (3)
+$$\bold{Y} = \bold{A} \cdot \bold{X}$$
 
 となる。
 
@@ -32,7 +32,7 @@ $$\bold{Y} = \bold{A} \cdot \bold{X}$$ (3)
 
 - Markdownで数式をかけるのが良い
 - GitHubで数式レンダリングされない
-- MarkdownPDFも対応していない
+- MarkdownPDF(拡張機能)で数式はレンダリングされない
 
 
 # 2. 数式を画像ファイルとして挿入する
