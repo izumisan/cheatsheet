@@ -166,6 +166,60 @@ push.default設定値
 > git revert <commit>
 ```
 
+# 追跡ファイル（Git管理ファイル）に対する操作
+
+## ファイルを残したままインデックスのみ削除する
+
+```
+> git rm --chached <file>
+```
+
+## 追跡ファイルの変更を無視する
+
+- --assume-unchanged / --no-assume-unchecked
+
+    ローカルの変更を無視するようになる（変更していないものとみなす）
+
+- --skip-worktree / -no-skip-worktree
+
+    ローカルの変更を保持する
+
+## ファイルの状態を確認する（`git ls-files`）
+
+- 追跡ファイルを確認する
+    ```
+    > git ls-files
+    ```
+
+- 未追跡ファイル（un-tracked）を確認する
+    ```
+    > git ls-files --others
+    > git ls-fiels -o
+    ```
+
+- 無視ファイル（ignoreファイル）を確認する
+    ```
+    > git ls-files --ignored
+    > git ls-files -i
+    ```
+
+- 変更ファイル（未ステージング）を確認する
+    ```
+    > git ls-files --modified
+    > git ls-files -m
+    ```
+
+- ステージングファイルを確認する
+    ```
+    > git ls-files --stage
+    > git ls-files -s
+    ```
+
+- 追跡無視ファイル（assume-unchanged, skip-worktree）を確認する
+    ```
+    > git ls-files -v
+    ```
+
 # リモート操作
 
 ## リモートリポジトリの確認
@@ -211,6 +265,18 @@ push.default設定値
     > git remote add origin https://xxx/xxx/xxx/hoge.git
     ```
 
+## 追跡ブランチ（upstream）を登録する
+
+```bash
+# カレントブランチのupstreamとして、origin/hogeブランチを設定する
+> git branch --set-upstream-to=origin/hoge
+```
+
+- 追跡ブランチを確認する
+    ```
+    > git branch -vv
+    ```
+
 # .gitignore
 
 - /を含まない指定（例: hoge）
@@ -245,4 +311,24 @@ push.default設定値
 # 特定のディレクトリを無視する場合は、先頭と末尾に/をつける.
 /bin/
 ```
+
+## .gitignoreのテンプレート
+
+[github / gitignore](https://github.com/github/gitignore)
+
+## gitignore (global)
+
+- $HOME/.config/git/gitignore
+
+特定のプロジェクトに依存せず、自分の環境に依存する除外設定は上記ファイルに書く.
+
+ちなみに、core.excludesfileに.gitignore_globalを設定するのは、いまいち（非推奨とまでは言わないが、gitの流儀に反する？）らしい.
+
+## exclude
+
+- GIT_PROJECT_ROOT/.git/info/exclude
+
+プロジェクト依存だが、他者と共有したくない除外設定は、上記ファイルに書く.
+
+
 
