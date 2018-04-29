@@ -213,6 +213,19 @@ ___イタリック＋ボールド___
 
 [Googleへのリンク](https://www.google.co.jp/)
 
+```
+[ラベル][リンク名]
+
+[リンク名]: URL
+```
+
+[Googleへのリンク2][google]
+
+[google]: https://www.google.co.jp/
+
+[別ファイルへのリンク（README）][hoge]
+
+[hoge]: README.md
 
 ## ページ内リンク（アンカーリンク）
 
