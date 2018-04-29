@@ -176,13 +176,25 @@ push.default設定値
 
 ## 追跡ファイルの変更を無視する
 
-- --assume-unchanged / --no-assume-unchecked
+- ローカルの変更を無視するようになる（変更していないものとみなす）
+    - 登録する
+        ```
+        > git update-index --asume-unchanged <ファイル名>
+        ```
+    - 解除する
+        ```
+        > git update-index --no-asume-unchanged <ファイル名>
+        ```
 
-    ローカルの変更を無視するようになる（変更していないものとみなす）
-
-- --skip-worktree / -no-skip-worktree
-
-    ローカルの変更を保持する
+- ローカルの変更を保持する
+    - 登録する
+        ```
+        > git update-index --skip-worktree <ファイル名>
+        ```
+    - 解除する
+        ```
+        > git update-index --no-skip-worktree <ファイル名>
+        ```
 
 ## ファイルの状態を確認する（`git ls-files`）
 
@@ -314,7 +326,7 @@ push.default設定値
 
 ## .gitignoreのテンプレート
 
-[github / gitignore](https://github.com/github/gitignore)
+- [github / gitignore](https://github.com/github/gitignore)
 
 ## gitignore (global)
 
