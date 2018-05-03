@@ -30,12 +30,25 @@ configは、システム、グローバル、ローカルの3段階があり、�
 > git config --global user.email "xxxxx"
 ```
 
-## 改行コードを自動変換しないようにする（`core.autocrlf`, `core.safecrlf`）
+## 改行コードに関する設定（`core.autocrlf`, `core.safecrlf`）
 
-改行コードを自動で変換しない
+改行コードの自動変換設定
 ```
-> git config --global core.autocrlf false
+> git config --global core.autocrlf <設定値>
 ```
+
+|設定|チェックアウト時|コミット時|
+|:-:|:-:|:-:|
+|true|LF->CRLF|CRLF->LF|
+|input|変換しない(MacやLinuxの場合)<br>LF->CRLF(Windowsの場合)|CRLF->LF|
+|false|変換しない|変換しない|
+
+Gitでは、開発環境の違いによる改行コード問題に対応するため、リポジトリ内の改行コードはLFを推奨している。`core.autocrlf`を設定することで、Windowsにおいては、チェックアウト時にCRLFに、コミット時にLFに自動的に変換するようにすることができる。
+
+プロジェクトの開発環境がWindowsのみの場合、CRLFのままリポジトリに記録しても問題ないので、`core.autocrlf=false`でも良い。
+
+なお、Gitはソースコード管理ツールのため、バイナリファイルの管理は苦手なので、trurもしくはinputの場合、バイナリファイルを壊してしまう可能性がある（.gitattributeファイルで個別に設定すれば回避は可能）
+
 
 改行コードが混在していても自動で変換しない
 ```
@@ -330,7 +343,7 @@ push.default設定値
 
 ## gitignore (global)
 
-- $HOME/.config/git/gitignore
+- $HOME/.config/git/ignore
 
 特定のプロジェクトに依存せず、自分の環境に依存する除外設定は上記ファイルに書く.
 
@@ -342,5 +355,39 @@ push.default設定値
 
 プロジェクト依存だが、他者と共有したくない除外設定は、上記ファイルに書く.
 
+# .gitattributes
 
+設定例
+```
+*           text=auto
+*.txt       text
+*.vcproj    text eol=crlf
+*.sh        text eol=lf
+*.jpg       -text
+*.exe       binary
+```
 
+- `*   text=auto`
+    - 全てのファイルに対し、text属性にautoを設定する
+    - つまり、Gitがテキストファイルと判定したファイルに対し、改行コードの変換はGitに任せる
+- `*.txt   text`
+    - 拡張子がtxtのファイルに対し、text属性を付与する
+- `*.vcproj    text eol=crlf`, `*.sh    text eol=lf`
+    - 拡張子がvcprojのファイルに対しtext属性を付与し、改行コードをCRLFに強制する
+    - 拡張子がshのファイルに対しtext属性を付与し、改行コードをLFに強制する
+    - `core.autocrlf=true`であっても、改行コードはeolで設定したコードになる
+- `*.jpg    -text`
+    - 拡張子がjpgのファイルに対し、text属性を除外する
+    - つまり、改行コードの自動変換が行われないようになる
+- `*.exe    binary`
+    - 拡張子がexeのファイルをバイナリファイルとして扱う
+    - `binary`は、`-crlf -diff`の省略形
+
+## attributes (global)
+
+- $HOME/.config/git/attributes
+
+# リポジトリ中のCRLFをLFに統一する
+
+- [Git for Windows でレポジトリー上の CR LF を LF に変換する手順](http://tech.nitoyon.com/ja/blog/2014/03/28/git-crlf-to-lf/)
+- [git repository 中の CRLF を LF に一括変換する](https://kokufu.blogspot.jp/2017/03/git-repository-crlf-lf.html)
