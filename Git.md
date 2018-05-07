@@ -253,7 +253,7 @@ push.default設定値
 > git remote -v
 ```
 
-## プッシュ
+## プッシュ（push）
 
 ```
 > git push <リモート名> <ローカルブランチ名>:<リモートブランチ名>
@@ -301,6 +301,23 @@ push.default設定値
     ```
     > git branch -vv
     ```
+
+## プル（pull）
+
+`git pull`は、①リモートのリポジトリの内容をローカルのリポジトリに取り込み（`git fetch`）、その後、②カレントブランチに取り込んだブランチをマージする（`git merge FETCH_HEAD`）。
+
+つまり、カレントブランチに対し、マージ処理が行われていることに注意する。
+
+`git push`の逆操作として`git pull`と記載されている場合があるが、これは間違い。`git push`の逆操作（対操作）は`git fetch`である。
+
+## リモートリポジトリのブランチをローカルリポジトリに取り込む
+
+`git clone`直後や、他者が`push`したブランチ等、リモートにはあるがローカルにはないブランチを取り込みたい場合、`git fetch`でorigin/xxxx（ローカルリポジトリのリモート追跡ブランチ）を更新した後、`git branch xxxx origin/xxxxx`（origin/xxxxxを起点にしてxxxxブランチを作成）する。
+
+後はいつも通り、`git checkout xxxx`でよい。
+
+なお、ブランチ作成＋チェックアウトはオプション`-b`でいけるので、`git checkout -b xxxx origin/xxxx`でも良い。
+
 
 # .gitignore
 
