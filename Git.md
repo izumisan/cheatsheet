@@ -402,9 +402,21 @@ push.default設定値
 
 ## attributes (global)
 
-- $HOME/.config/git/attributes
+適当な場所にファイルを作成し、`core.attributesfile`に設定する
+
+```bash
+# ＄HOMEに.gitattributesがある場合
+> git config --global core.attributesfile ~/.gitattributes
+```
 
 # リポジトリ中のCRLFをLFに統一する
 
+## CRLFのファイルを確認する
+
+```
+> git grep --cached -l -I $'\r$'
+```
+
+## 参考
 - [Git for Windows でレポジトリー上の CR LF を LF に変換する手順](http://tech.nitoyon.com/ja/blog/2014/03/28/git-crlf-to-lf/)
 - [git repository 中の CRLF を LF に一括変換する](https://kokufu.blogspot.jp/2017/03/git-repository-crlf-lf.html)
