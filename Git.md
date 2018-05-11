@@ -179,6 +179,14 @@ push.default設定値
 > git revert <commit>
 ```
 
+# ブランチを間違えたコミットを修正する
+
+branchBにコミットすべきところ、間違えてbranchAにコミットしてしまったのを修正する
+
+1. branchAからbranchBを作成する
+1. branchAから間違えたコミットを取り除く（reset）
+1. branchAにbranchBをマージする
+
 # 追跡ファイル（Git管理ファイル）に対する操作
 
 ## ファイルを残したままインデックスのみ削除する
