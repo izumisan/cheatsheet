@@ -475,3 +475,15 @@ branchBにコミットすべきところ、間違えてbranchAにコミットし
 ## 参考
 - [Git for Windows でレポジトリー上の CR LF を LF に変換する手順](http://tech.nitoyon.com/ja/blog/2014/03/28/git-crlf-to-lf/)
 - [git repository 中の CRLF を LF に一括変換する](https://kokufu.blogspot.jp/2017/03/git-repository-crlf-lf.html)
+
+# その他
+
+- 未追跡ファイルを削除する
+    ```
+    > git clean
+    ```
+
+- ブランチのエクスポート
+    ```
+    > git archive HEAD --output=hoge.zip
+    ```
