@@ -42,12 +42,26 @@ configは、システム、グローバル、ローカルの3段階があり、�
 |true|LF->CRLF|CRLF->LF|
 |input|変換しない(MacやLinuxの場合)<br>LF->CRLF(Windowsの場合)|CRLF->LF|
 |false|変換しない|変換しない|
+\* Windowsの場合、trueとinputに差異はない.
+
 
 Gitでは、開発環境の違いによる改行コード問題に対応するため、リポジトリ内の改行コードはLFを推奨している。`core.autocrlf`を設定することで、Windowsにおいては、チェックアウト時にCRLFに、コミット時にLFに自動的に変換するようにすることができる。
 
 プロジェクトの開発環境がWindowsのみの場合、CRLFのままリポジトリに記録しても問題ないので、`core.autocrlf=false`でも良い。
 
-なお、Gitはソースコード管理ツールのため、バイナリファイルの管理は苦手なので、trurもしくはinputの場合、バイナリファイルを壊してしまう可能性がある（.gitattributeファイルで個別に設定すれば回避は可能）
+なお、Gitはソースコード管理ツールのため、バイナリファイルの管理は苦手なので、trurもしくはinputの場合、バイナリファイルを壊してしまう可能性がある。
+.gitattributeファイルで個別に設定すれば回避は可能だが、.gitattributesに`"* text=auto"`が指定されていると、core.autocrlfの設定より**gitattributesの設定が優先される**。
+
+### 結局、どうする？
+
+- core.autocrlf=true（windowsにおけるinput含む）の場合、.gitattributesファイルが適切に指定されていないとファイルを壊してしまう可能性があるので、自動変換しない設定が適当か...
+- この場合、`"* text=auto"`が指定された.gitattributesファイルの有無によって改行コードが混在する可能性はあるが、改行コードはエディタで対処できるのでファイルを壊してしまうよりはずっとマシか.
+- よって、結論としては次の設定が利口かな...
+    |OS|core.autocrlf|
+    |---|---|
+    |Windows|false|
+    |Linux, Mac|input or false|
+- 上記設定をいきつつ、改行コードが問題になりそうだったら.gitattributesファイルでガチガチに強制しろということかな.
 
 
 改行コードが混在していても自動で変換しない
