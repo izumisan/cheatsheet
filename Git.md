@@ -483,7 +483,17 @@ branchBにコミットすべきところ、間違えてbranchAにコミットし
     > git clean
     ```
 
-- ブランチのエクスポート
+- Gitで管理しているファイルのアーカイブ（エクスポート）
+    ```sh
+    # archive.zipとしてエクスポート
+    > git archive HEAD --output=archive.zip
+
+    # Hogeディレクトリのみエクスポート
+    > git archive HEAD Hoge --output=Hoge.zip
     ```
-    > git archive HEAD --output=hoge.zip
+
+- 特定のファイルを除外してアーカイブ
+    ```sh
+    # .gitattributesに"export-ignore"を指定して以下を実行
+    > git archive HEAD --worktree-attributes --output=archive.zip
     ```
