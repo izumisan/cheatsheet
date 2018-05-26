@@ -506,15 +506,34 @@ branchBにコミットすべきところ、間違えてbranchAにコミットし
 > git config --global core.attributesfile ~/.gitattributes
 ```
 
-# リポジトリ中のCRLFをLFに統一する
+# 改行コードの統一
 
 ## CRLFのファイルを確認する
 
-```
+```bash
+# リポジトリ内でCRを検索する
 > git grep --cached -l -I $'\r$'
+
+# ワーキングツリー内でCRを検索する
+> git grep -l -I $'\r$'
+
+# 属性, EOLを確認する
+> git ls-files --eol
+```
+
+## 改行コードが混在したリポジトリをLFに統一する
+
+.gitattributesファイルでファイル属性を設定した後、下記を実施する.
+
+```bash
+> git read-tree --empty  # インデックスの削除
+> git add .
+> git commit -m "Normalized line-endings"
 ```
 
 ## 参考
+- [How to normalize working tree line endings in Git?
+](https://stackoverflow.com/questions/15641259/how-to-normalize-working-tree-line-endings-in-git)
 - [Git for Windows でレポジトリー上の CR LF を LF に変換する手順](http://tech.nitoyon.com/ja/blog/2014/03/28/git-crlf-to-lf/)
 - [git repository 中の CRLF を LF に一括変換する](https://kokufu.blogspot.jp/2017/03/git-repository-crlf-lf.html)
 
