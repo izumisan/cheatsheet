@@ -16,7 +16,7 @@
 ## Markdown関連
 
 - ~~Auto-Open Markdown Preview~~
-    - ~~mdファイルを開くと自動でプレビューを開く~~
+    - mdファイルを開くと自動でプレビューを開く
     - ファイル比較する時にも自動でプレビューが開くので、便利な場合と邪魔な場合がある
     - Markdown All in Oneで代用可能
 
@@ -26,11 +26,11 @@
     - Markdown Preview Enhancedの方が対応範囲が広い
 
 - ~~Markdown Checkboxes~~
-    - ~~Markdownでチェックボックスを表現できる~~
+    - Markdownでチェックボックスを表現できる
     - Markdown All in One, Markdown Preview Enhancedで代用可能
 
 - ~~Markdown+Math~~
-    -  ~~LaTeXで数式がかける~~  
+    -  LaTeXで数式がかける
     -  Markdown All in One, Markdown Preview Enhancedで代用可能
 
 - **Markdown All in One**
@@ -48,7 +48,14 @@ Markdown関連で、機能ごとに複数の拡張機能をいれたりしてい
 ## Git関連
 
 - Git History
-
 - Git Tree Compare
-    
 - GitLens
+
+## その他
+
+- Rainbow CSV
+    - csvファイルをカラム毎に色分けする
+    - 地味にいい
+
+- Excel Viewer
+    - csvファイルやxlsxファイルを表形式で表示する
