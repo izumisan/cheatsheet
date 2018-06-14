@@ -17,7 +17,7 @@ using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
 ```
 
-# Dispose関連
+# リソースの破棄
 
 ## Disposeパターン 
 
@@ -115,3 +115,44 @@ public class Derived : Base
 - 自身のDispose後は再利用不可
     - Dispose後に要素を追加すると、直後にDiposeされる？
 - 要素のみDisposeするには、Clear()を使用する
+
+# `IEnumerable<T>`の実装
+
+```cs {.line-numbers}
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace IEnumerableSample
+{
+    public class Foo : IEnumerable<int>
+    {
+        public Foo()
+        {
+            var random = new Random();
+            _data = Enumerable.Range( 0, 10 )
+                              .Select( _ => random.Next() )
+                              .ToList();
+        }
+
+        private List<int> _data = null;
+
+        #region IEnumerable<T>の実装
+
+        public IEnumerator<int> GetEnumerator()
+        {
+            return _data.GetEnumerator();
+        }
+        #endregion
+
+        #region IEnumerableの実装
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
+        }
+        #endregion
+    }
+}
+```
