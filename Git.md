@@ -243,38 +243,25 @@ branchBにコミットすべきところ、間違えてbranchAにコミットし
 
 ## ファイルの状態を確認する（`git ls-files`）
 
-- 追跡ファイルを確認する
-    ```
-    > git ls-files
+|option|description|
+|---|---|
+|-c<br>--cached|追跡ファイル（default）|
+|-d<br>--deleted|削除ファイル|
+|-m<br>--modified|変更ファイル（未ステージング）|
+|-o<br>--others|未追跡ファイル|
+|-s<br>--stage|ステージングファイル|
+|--eol|コンテンツタイプ, eol属性|
+
+
+- 空ディレクトリを表示する
+    ```bash
+    $ git ls-files --others --directory
     ```
 
-- 未追跡ファイル（un-tracked）を確認する
-    ```
-    > git ls-files --others
-    > git ls-fiels -o
-    ```
-
-- 無視ファイル（ignoreファイル）を確認する
-    ```
-    > git ls-files --ignored
-    > git ls-files -i
-    ```
-
-- 変更ファイル（未ステージング）を確認する
-    ```
-    > git ls-files --modified
-    > git ls-files -m
-    ```
-
-- ステージングファイルを確認する
-    ```
-    > git ls-files --stage
-    > git ls-files -s
-    ```
-
-- 追跡無視ファイル（assume-unchanged, skip-worktree）を確認する
-    ```
-    > git ls-files -v
+- 追跡無視ファイル（assume-unchanged, skip-worktree）を表示する
+    ```bash
+    # 追跡無視ファイルは"S"で識別される
+    $ git ls-files -v
     ```
 
 # リモート操作
@@ -537,24 +524,72 @@ branchBにコミットすべきところ、間違えてbranchAにコミットし
 - [Git for Windows でレポジトリー上の CR LF を LF に変換する手順](http://tech.nitoyon.com/ja/blog/2014/03/28/git-crlf-to-lf/)
 - [git repository 中の CRLF を LF に一括変換する](https://kokufu.blogspot.jp/2017/03/git-repository-crlf-lf.html)
 
+# 差分比較（git diff）
+
+```bash
+# HEADとワーキングツリーを比較する
+$ git diff
+```
+
+```bash
+# 一つ前のコミットと比較する
+$ git diff HEAD^ HEAD
+$ git diff HEAD~1 HEAD
+```
+
+```bash
+# コミット間を比較する
+$ git diff {ハッシュ値} {ハッシュ値}
+```
+
+```bash
+# ファイル名のみ表示する
+$ git diff --name-only
+```
+
+```bash
+# 2つ前のコミットからHEADまでの変更のうち、
+# 追加（A）、変更（M）されたファイルを表示する
+$ git diff HEAD~2 HEAD --diff-filter=AM --name-only
+```
+
+|--diff-filter|意味|
+|:---:|---|
+|A|追加（added）|
+|C|コピー（copied）|
+|D|削除（deleted）|
+|M|変更（modified）|
+|R|リネーム（renamed）|
+|U|未マージ（unmerged）|
+
+\* 小文字はexcludeを示す
+
+# アーカイブ（git archive）
+
+- Gitで管理しているファイルのアーカイブ（エクスポート）
+    ```bash
+    # archive.zipとしてエクスポート
+    $ git archive HEAD --output=archive.zip
+
+    # Hogeディレクトリのみエクスポート
+    $ git archive HEAD Hoge --output=Hoge.zip
+    ```
+
+- 特定のファイルを除外してアーカイブ
+    ```bash
+    # .gitattributesに"export-ignore"を指定して以下を実行
+    $ git archive HEAD --worktree-attributes --output=archive.zip
+    ```
+
+- git diffで差分ファイルを抽出してアーカイブ
+    ```bash
+    # 一つ前のコミットからの変更ファイルのみを抽出してアーカイブ
+    $ git archive HEAD `git diff HEAD^ HEAD --name-only --diff-filter=d` --output=diff.zip
+    ```
+
 # その他
 
 - 未追跡ファイルを削除する
     ```
     > git clean
-    ```
-
-- Gitで管理しているファイルのアーカイブ（エクスポート）
-    ```sh
-    # archive.zipとしてエクスポート
-    > git archive HEAD --output=archive.zip
-
-    # Hogeディレクトリのみエクスポート
-    > git archive HEAD Hoge --output=Hoge.zip
-    ```
-
-- 特定のファイルを除外してアーカイブ
-    ```sh
-    # .gitattributesに"export-ignore"を指定して以下を実行
-    > git archive HEAD --worktree-attributes --output=archive.zip
     ```
