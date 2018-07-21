@@ -1,6 +1,16 @@
 # qmake
 
-# 変数
+# 基本
+
+## 変数参照
+
+- 変数の参照：`$$HOGE`, `$${HOGE}`
+- 環境変数の参照：`$$(PWD)`, `$(PWD)`
+    - $$(...)は、qmake時に展開される
+    - $(...)は、Makefileで処理される時に展開される（$(...)がMakefileに出力される）
+- qmakeプロパティの参照：`$$[QT_VERSION]`
+
+# 変数（qmakeプロパティ）
 
 ## TARGET
 
@@ -49,6 +59,13 @@
 ## QMAKE_POST_LINK
 
 ビルド後コマンド
+
+## \_PRO_FILE_
+
+proファイルパス
+## \_PRO_FILE_PWD_
+
+proファイルのディレクトリ
 
 # VisualStudio
 
