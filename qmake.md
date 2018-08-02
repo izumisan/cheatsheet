@@ -60,6 +60,10 @@
 
 ビルド後コマンド
 
+## OUT_PWD
+
+Makefileの出力先ディレクトリ
+
 ## \_PRO_FILE_
 
 proファイルパス
