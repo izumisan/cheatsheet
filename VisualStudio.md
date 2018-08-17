@@ -36,3 +36,9 @@ XCOPY /Y /I /E /D {source} {dest}
 
 - [コンパラオプション一覧 (Microsoft Docs)](https://docs.microsoft.com/ja-jp/cpp/build/reference/compiler-options-listed-by-category)
 
+# C++（CLRプロジェクト）
+
+## ソースファイルでstdafx.hのインクルードが必要となる
+
+- 「プリコンパイル済みヘッダー」が"使用"になっており、「プリコンパイル済みヘッダーファイル」として"stdafx.h"が指定されているため、stdafx.hをインクルードしていないとコンパイルエラーとなる
+- 「必ず使用されるインクルードファイル」に"stdafx.h"を指定すると、ソースファイルへの`#include "stdafx.h"`の記述は不要となる
