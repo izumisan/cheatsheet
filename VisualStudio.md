@@ -2,6 +2,20 @@
 
 Visual Studioの関する覚書
 
+## ビルドイベントでファイルコピー
+
+```
+XCOPY /Y /I /E /D {source} {dest}
+```
+
+|オプション|説明|
+|:-:|---|
+|/Y|上書き確認なし|
+|/I|コピー先にディレクトリを作成する|
+|/E|空ディレクトリもコピーする|
+|/D|新しい場合にコピーする|
+
+
 # C++
 
 ## UTF-8を使う
@@ -21,5 +35,4 @@ Visual Studioの関する覚書
 ## Tips
 
 - [コンパラオプション一覧 (Microsoft Docs)](https://docs.microsoft.com/ja-jp/cpp/build/reference/compiler-options-listed-by-category)
-
 
