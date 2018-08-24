@@ -88,6 +88,19 @@ end
 
 @enduml
 
+5a リファレンス
+@startuml seq.5a_Reference
+participant Alice 
+actor Bob
+
+ref over Alice, Bob : init
+Alice -> Bob : hello
+ref over Bob 
+This can be on 
+several lines
+end ref
+@enduml
+
 6 ノート
 @startuml seq.6_Note1
 Alice->Bob : hello 
