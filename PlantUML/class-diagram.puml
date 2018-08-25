@@ -1,0 +1,197 @@
+1. クラス間の関係
+----------------------------------------
+@startuml class.1_relation1
+Class01 <|-- Class02 
+Class03 *-- Class04 
+Class05 o-- Class06 
+Class07 .. Class08 
+Class09 -- Class10
+@enduml
+
+@startuml class.1_relation2
+Class11 <|.. Class12 
+Class13 --> Class14 
+Class15 ..> Class16 
+Class17 ..|> Class18 
+Class19 <--* Class20
+@enduml
+
+@startuml class.1_relation3
+Class21 #-- Class22 
+Class23 x-- Class24 
+Class25 }-- Class26 
+Class27 +-- Class28 
+Class29 ^-- Class30 
+@enduml
+
+
+2. 関係ラベル
+----------------------------------------
+@startuml class.2_label1
+Class01 "1" *-- "many" Class02 : contains
+Class03 o-- Class04 : aggregation
+Class05 --> "1" Class06
+@enduml
+
+@startuml class.2_label2
+class Car
+Driver - Car : drives > 
+Car *- Wheel : have 4 > 
+Car -- Person : < owns
+@enduml
+
+
+3. メンバー
+----------------------------------------
+@startuml class.3_member1
+Object <|-- ArrayList
+Object : equals() 
+ArrayList : Object[] elementData 
+ArrayList : size()
+@enduml
+
+@startuml class.3_member2
+class Dummy { 
+    String data 
+    void methods() 
+}
+class Flight { 
+    flightNumber : Integer 
+    departureTime : Date 
+} 
+@enduml
+
+@startuml class.3_member3
+class Dummy {
+    {field} A field (despite parentheses) 
+    {method} Some method 
+}
+@enduml
+
+
+4. 可視性
+----------------------------------------
+@startuml class.4_accessibility1
+class Dummy {
+     -field1 
+     #field2 
+     ~method1() 
+     +method2() 
+}
+@enduml
+
+@startuml class.4_accessibility2
+skinparam classAttributeIconSize 0 
+class Dummy { 
+    -field1 
+    #field2 
+    ~method1() 
+    +method2() 
+}
+@enduml
+
+
+5. メンバー修飾
+----------------------------------------
+@startuml class.4_classmodifier
+class Dummy {
+     {static} String id 
+     {abstract} void methods()
+}
+@enduml
+
+
+6. セパレーター
+----------------------------------------
+@startuml class.6_separetor
+class Foo1 { 
+You can use 
+several lines 
+..
+as you want 
+and group 
+==
+things together.
+__
+You can have as many groups 
+as you want 
+--
+End of class
+}
+class User { 
+.. Simple Getter ..
++ getName() 
++ getAddress() 
+.. Some setter ..
++ setName() 
+__ private data __
+int age 
+-- encrypted --
+String password 
+}
+@enduml
+
+
+7. 注釈とステレオタイプ
+----------------------------------------
+@startuml class.7_note_stereotype
+class Object << general >> 
+Object <|--- ArrayList
+
+note top of Object : In java, every class\nextends this one.
+
+note "This is a floating note" as N1 
+note "This note is connected\nto several objects." as N2 
+Object .. N2 
+N2 .. ArrayList
+
+class Foo 
+note left: On last defined class
+@enduml
+
+
+8. 抽象クラスとインタフェース
+----------------------------------------
+@startuml class.8_abstract_interface
+abstract class AbstractList 
+abstract AbstractCollection 
+interface List 
+interface Collection
+
+List <|-- AbstractList 
+Collection <|-- AbstractCollection
+
+Collection <|- List 
+AbstractCollection <|- AbstractList 
+AbstractList <|-- ArrayList
+
+class ArrayList { 
+    Object[] elementData 
+    size() 
+}
+enum TimeUnit { 
+    DAYS 
+    HOURS 
+    MINUTES 
+}
+annotation SuppressWarnings
+@enduml
+
+
+9. ジェネリック
+----------------------------------------
+@startuml class.9_generic
+class Foo<? extends Element> { 
+    int size() 
+} 
+Foo *- Element
+@enduml
+
+
+10. カスタムアイコン
+----------------------------------------
+@startuml class.10_customicon
+class System << (S,#FF7700) Singleton >> 
+class Date << (D,orchid) >> 
+@enduml
+
