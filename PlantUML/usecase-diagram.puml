@@ -1,6 +1,6 @@
 1. ユースケース
 ----------------------------------------
-@startuml uc.1_usecese
+@startuml uc.1_usecase
 (First usecase) 
 (Another usecase) as (UC2) 
 usecase UC3 
