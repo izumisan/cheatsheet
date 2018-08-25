@@ -93,16 +93,13 @@ MySql --> (Use)
 8. 矢印の向き
 ----------------------------------------
 @startuml uc.8_arrow1
-:user: --> (Use case 1) 
-:user: -> (Use case 2) 
+:user: --> (Bottom)
+:user: -> (Right)
+(Up) <.. :user:
+(Left) <. :user:
 @enduml
 
 @startuml uc.8_arrow2
-(Use case 1) <.. :user: 
-(Use case 2) <- :user: 
-@enduml
-
-@startuml uc.8_arrow3
 :user: -left-> (dummyLeft) 
 :user: -right-> (dummyRight) 
 :user: -up-> (dummyUp) 
