@@ -93,7 +93,7 @@ class Dummy {
 
 5. メンバー修飾
 ----------------------------------------
-@startuml class.4_classmodifier
+@startuml class.5_classmodifier
 class Dummy {
      {static} String id 
      {abstract} void methods()
