@@ -195,3 +195,216 @@ class System << (S,#FF7700) Singleton >>
 class Date << (D,orchid) >> 
 @enduml
 
+
+11. パッケージ1
+----------------------------------------
+@startuml class.11_package1
+package "Classic Collections" #DDDDDD { 
+Object <|-- ArrayList
+}
+package net.sourceforge.plantuml { 
+Object <|-- Demo1 
+Demo1 *- Demo2 
+}
+@enduml
+
+@startuml class.11_package2
+scale 750 width 
+package foo1 <<Node>> { 
+class Class1 
+}
+package foo2 <<Rectangle>> { 
+class Class2
+}
+package foo3 <<Folder>> { 
+class Class3 
+}
+package foo4 <<Frame>> { 
+class Class4
+}
+package foo5 <<Cloud>> { 
+class Class5
+}
+package foo6 <<Database>> { 
+class Class6
+}
+@enduml
+
+@startuml class.11_package3
+skinparam packageStyle rectangle
+package foo1.foo2 {
+}
+package foo1.foo2.foo3 { 
+class Object 
+}
+foo1.foo2 +-- foo1.foo2.foo3
+@enduml
+
+
+12. 名前空間
+----------------------------------------
+@startuml class.12_namespace
+class BaseClass
+namespace net.dummy #DDDDDD { 
+.BaseClass <|-- Person 
+Meeting o-- Person
+.BaseClass <|- Meeting
+}
+namespace net.foo { 
+net.dummy.Person <|- Person 
+.BaseClass <|-- Person
+net.dummy.Meeting o-- Person
+}
+BaseClass <|-- net.unused.Person
+@enduml
+
+@startuml class.12_namespace2
+set namespaceSeparator :: 
+class X1::X2::foo { 
+some info
+}
+@enduml
+
+@startuml class.12_namespace3
+set namespaceSeparator none 
+class X1.X2.foo { 
+some info 
+}
+@enduml
+
+
+13. ロリポップ
+----------------------------------------
+@startuml class.13_lollipop
+class foo 
+bar ()- foo 
+@enduml
+
+
+14. 配置
+----------------------------------------
+@startuml class.14_location1
+Room o- Student 
+Room *-- Chair 
+@enduml
+
+@startuml class.14_location2
+Student -o Room 
+Chair --* Room 
+@enduml
+
+@startuml class.14_location3
+foo -left-> dummyLeft 
+foo -right-> dummyRight 
+foo -up-> dummyUp 
+foo -down-> dummyDown 
+@enduml
+
+
+15. 関連クラス
+----------------------------------------
+@startuml class.15_relatedclass1
+class Student { 
+Name
+} 
+Student "0..*" - "1..*" Course 
+(Student, Course) .. Enrollment
+class Enrollment { 
+drop() 
+cancel() 
+} 
+@enduml
+
+@startuml class.15_relatedclass2
+class Student { 
+Name 
+} 
+Student "0..*" -- "1..*" Course 
+(Student, Course) . Enrollment
+class Enrollment { 
+drop() 
+cancel() 
+} 
+@enduml
+
+16. スキンパラメータ
+----------------------------------------
+@startuml class.16_skin1
+skinparam class { 
+BackgroundColor PaleGreen 
+ArrowColor SeaGreen 
+BorderColor SpringGreen 
+} 
+skinparam stereotypeCBackgroundColor YellowGreen
+Class01 "1" *-- "many" Class02 : contains
+Class03 o-- Class04 : aggregation
+@enduml
+
+@startuml class.16_skin2
+skinparam class { 
+BackgroundColor PaleGreen 
+ArrowColor SeaGreen 
+BorderColor SpringGreen 
+BackgroundColor<<Foo>> Wheat 
+BorderColor<<Foo>> Tomato 
+} 
+skinparam stereotypeCBackgroundColor YellowGreen 
+skinparam stereotypeCBackgroundColor<< Foo >> DimGray
+Class01 <<Foo>> 
+Class03 <<Foo>> 
+Class01 "1" *-- "many" Class02 : contains
+Class03 o-- Class04 : aggregation
+@enduml
+
+@startuml class.16_skin3
+skinparam backgroundcolor AntiqueWhite/Gold 
+skinparam classBackgroundColor Wheat|CornflowerBlue
+class Foo #red-green 
+note left of Foo #blue\9932CC 
+this is my 
+note on this class 
+end note
+package example #GreenYellow/LightGoldenRodYellow { 
+class Dummy 
+}
+@enduml
+
+
+17. レイアウト
+----------------------------------------
+@startuml class.17_layout
+class Bar1 
+class Bar2 
+together { 
+class Together1 
+class Together2 
+class Together3 
+} 
+Together1 - Together2 
+Together2 - Together3 
+Together2 -[hidden]--> Bar1 
+Bar1 -[hidden]> Bar2
+@enduml
+
+
+18. 分割
+----------------------------------------
+@startuml class.18_split
+' Split into 4 pages 
+page 2x2
+skinparam pageMargin 10 
+skinparam pageExternalColor gray 
+skinparam pageBorderColor black
+class BaseClass
+namespace net.dummy #DDDDDD { 
+.BaseClass <|-- Person 
+Meeting o-- Person
+.BaseClass <|- Meeting
+}
+namespace net.foo { 
+net.dummy.Person <|- Person 
+.BaseClass <|-- Person
+net.dummy.Meeting o-- Person 
+}
+BaseClass <|-- net.unused.Person 
+@enduml
