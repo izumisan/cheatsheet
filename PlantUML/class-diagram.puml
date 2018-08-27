@@ -103,7 +103,7 @@ class Dummy {
 
 6. セパレーター
 ----------------------------------------
-@startuml class.6_separetor
+@startuml class.6_separator
 class Foo1 { 
 You can use 
 several lines 
@@ -149,13 +149,25 @@ class Foo
 note left: On last defined class
 @enduml
 
+@startuml class.7_linknote
+class Dummy 
+Dummy --> Foo : A link 
+note on link #red: note that is red
+
+Dummy --> Foo2 : Another link
+note right on link #blue
+this is my note on right link
+and in blue
+end note
+@enduml
+
 
 8. 抽象クラスとインタフェース
 ----------------------------------------
 @startuml class.8_abstract_interface
 abstract class AbstractList 
 abstract AbstractCollection 
-interface List 
+interface List
 interface Collection
 
 List <|-- AbstractList 
