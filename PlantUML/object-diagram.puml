@@ -1,0 +1,22 @@
+
+@startuml object.1_basic
+object firstObject 
+object "My Second Object" as o2 
+@enduml
+
+@startuml object.2_field
+object user1
+user1 : name = "Dummy" 
+user1 : id = 123
+
+object user2 {
+    name = "Dummy2",
+    id = 246
+}
+@enduml
+
+@startuml uml_object
+object "__インスタンス名 : クラス名__" as foo {
+    変数名 = 値
+}
+@enduml
