@@ -420,3 +420,17 @@ net.dummy.Meeting o-- Person
 }
 BaseClass <|-- net.unused.Person 
 @enduml
+
+
+----------------------------------------
+@startuml uml_class
+class "クラス名" as foo <<ステレオタイプ>> {
+    + <<property>> プロパティ : 型 { get, set }
+    - privateフィールド : 型
+    + {static} staticメソッド(): 戻り値型
+    + {abstract} abstractメソッド(): 戻り値型
+    + publicメソッド() : 戻り値型
+    # protectedメソッド() : 戻り値型
+    ~ packageメソッド(): 戻り値型
+}
+@enduml
