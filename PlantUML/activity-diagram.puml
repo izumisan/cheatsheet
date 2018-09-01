@@ -76,7 +76,7 @@ endwhile (empty)
 
 4. 並列処理
 ----------------------------------------
-@startuml act.4
+@startuml act.4_fork
 start
 if (multiprocessor?) then (yes) 
 fork 
@@ -122,7 +122,7 @@ These files should edited at this point!;
 
 7. 矢印
 ----------------------------------------
-@startuml act.7_arror
+@startuml act.7_arrow
 :foo1; 
 -> You can put text on arrows; 
 if (test) then 
