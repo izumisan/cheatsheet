@@ -157,9 +157,9 @@ stop
 @enduml
 
 
-9. パーティション
+9. レーン
 ----------------------------------------
-@startuml act.9_partition
+@startuml act.9_lane
 |Swimlane1| 
 start 
 :foo1; 
