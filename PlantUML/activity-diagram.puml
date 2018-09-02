@@ -1,0 +1,271 @@
+1. シンプルな例
+----------------------------------------
+@startuml act.1_example1
+start 
+:Hello world; 
+:This is on defined on 
+several **lines**; 
+stop 
+@enduml
+
+@startuml act.1_example2
+start 
+:Hello world; 
+:This is on defined on 
+several **lines**; 
+end 
+@enduml
+
+
+2. 条件文
+----------------------------------------
+@startuml act.2_if1
+start
+if (Graphviz installed?) then (yes) 
+:process all\ndiagrams; 
+else (no) 
+:process only __sequence__ and __activity__ diagrams; 
+endif
+stop
+@enduml
+
+@startuml act.2_if2
+start 
+if (condition A) then (yes) 
+:Text 1; 
+elseif (condition B) then (yes) 
+:Text 2; 
+stop 
+elseif (condition C) then (yes) 
+:Text 3; 
+elseif (condition D) then (yes) 
+:Text 4;
+else (nothing) 
+:Text else; 
+endif 
+stop 
+@enduml
+
+3. 繰り返し
+----------------------------------------
+@startuml act.3_repeat
+start
+repeat 
+:read data; 
+:generate diagrams; 
+repeat while (more data?)
+stop
+@enduml
+
+@startuml act.3_while
+start
+while (data available?)
+:read data; 
+:generate diagrams; 
+endwhile
+stop
+@enduml
+
+@startuml act.3_while2
+while (check filesize ?) is (not empty) 
+:read file; 
+endwhile (empty) 
+:close file; 
+@enduml
+
+
+4. 並列処理
+----------------------------------------
+@startuml act.4_fork
+start
+if (multiprocessor?) then (yes) 
+fork 
+:Treatment 1; 
+fork again 
+:Treatment 2; 
+end fork 
+else (monoproc) 
+:Treatment 1; 
+:Treatment 2; 
+endif
+@enduml
+
+
+5. 注釈
+----------------------------------------
+@startuml act.5_note
+start 
+:foo1; 
+floating note left: This is a note
+:foo2;
+note right 
+This note is on several 
+//lines// and can 
+contain <b>HTML</b> 
+==== 
+* Calling the method ""foo()"" is prohibited 
+end note 
+stop
+@enduml
+
+
+6. 色指定
+----------------------------------------
+@startuml act.6_color
+start 
+:starting progress; 
+#HotPink:reading configuration files 
+These files should edited at this point!; 
+#AAAAAA:ending of the process;
+@enduml
+
+
+7. 矢印
+----------------------------------------
+@startuml act.7_arrow
+:foo1; 
+-> You can put text on arrows; 
+if (test) then 
+-[#blue]-> 
+:foo2; 
+-[#green,dashed]-> The text can 
+also be on several lines 
+and **very** long...; 
+:foo3; 
+else 
+-[#black,dotted]-> 
+:foo4; 
+endif 
+-[#gray,bold]-> 
+:foo5; 
+@enduml
+
+
+8. グループ化
+----------------------------------------
+@startuml act.8_grouping
+start 
+partition Initialization { 
+:read config file;
+:init internal variable; 
+} 
+partition Running { 
+:wait for user interaction; 
+:print information; 
+}
+stop 
+@enduml
+
+
+9. レーン
+----------------------------------------
+@startuml act.9_lane
+|Swimlane1| 
+start 
+:foo1; 
+|#AntiqueWhite|Swimlane2| 
+:foo2; 
+:foo3; 
+|Swimlane1| 
+:foo4; 
+|Swimlane2| 
+:foo5; 
+stop 
+@enduml
+
+
+10. SDL図
+----------------------------------------
+@startuml act.10
+:Ready; 
+:next(o)| 
+:Receiving; 
+split 
+:nak(i)< 
+:ack(o)> 
+split again 
+:ack(i)< 
+:next(o) on several line| 
+:i := i + 1] 
+:ack(o)> 
+split again 
+:err(i)< 
+:nak(o)> 
+split again 
+:foo/ 
+split again 
+:i > 5} 
+stop 
+end split 
+:finish; 
+@enduml
+
+
+11. 完全な例
+----------------------------------------
+@startuml act.11_example
+start 
+:ClickServlet.handleRequest(); 
+:new page; 
+
+if (Page.onSecurityCheck) then (true) 
+:Page.onInit(); 
+if (isForward?) then (no) 
+:Process controls; 
+if (continue processing?) then (no) 
+stop 
+endif
+
+if (isPost?) then (yes) 
+:Page.onPost(); 
+else (no) 
+:Page.onGet(); 
+endif 
+:Page.onRender(); 
+endif 
+else (false) 
+endif
+
+if (do redirect?) then (yes) 
+:redirect process; 
+else 
+if (do forward?) then (yes) 
+:Forward request; 
+else (no) 
+:Render page template; 
+endif 
+endif
+stop
+@enduml
+
+-----
+@startuml uml_activity
+
+|パーティション1|
+start
+:アクティビティ;
+
+|パーティション2|
+:アクティビティ;
+
+|パーティション1|
+if (条件文) then (true)
+    :アクティビティ;
+else (false)
+    :アクティビティ;
+endif
+
+fork
+:サブアクティビティ|
+:オブジェクト]
+fork again
+:送信ノード>
+:受信ノード<
+end fork
+
+repeat
+:アクティビティ;
+repeat while (条件文) is (label)
+
+stop
+@enduml
