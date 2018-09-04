@@ -20,6 +20,41 @@ UML以外にも、ワイヤーフレームやガントチャートとかも書�
 - `title タイトル`
 - `caption 見出し`
 
+# Salt
+
+- GUI設計を助けるPlantUMLのサブプロジェクト
+- 基本的なヴィジェットがPlantUMLでかける
+- `salt{}`又は`@startsalt`～`@endsalt`
+- たぶんこれを用いてUI設計を行うことはないと思うが、木構造ヴィジェットは簡単に書けるので、用途はありそうなカンジ
+
+## 木構造ヴィジェット
+
+![](salt/treewidget.png)
+```
+@startuml treewidget
+salt
+{
+{T
++ root
+++ item1
++++ item1-1
++++ item1-2
+++ item2
++++ item2-1
+++++ item2-1-1
++++++ item2-1-1-1
++++ item2-2
++++ item2-3
+++ item3
+}
+}
+@endsalt
+```
+
+- `{T`で開始して、`}`で閉じる
+- 階層は`+`を使用する
+
+
 # リンク
 
 - [公式ページ](http://plantuml.com/)
