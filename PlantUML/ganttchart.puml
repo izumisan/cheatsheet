@@ -1,0 +1,130 @@
+1. タスク定義
+@startgantt gantt.1_simple
+[設計] lasts 15 days
+[テスト] lasts 10 days
+@endgantt
+
+2. 依存関係
+@startgantt gantt.2_consecutivetask1
+[設計] lasts 15 days
+[テスト] lasts 10 days
+[テスト] starts at [設計]'s end
+@endgantt
+
+@startgantt gantt.2_consecutivetask2
+[設計] lasts 14 days
+then [テスト] lasts 4 days
+then [デプロイ] lasts 6 days
+@endgantt
+
+@startgantt gantt.2_consecutivetask3
+[設計] lasts 14 days
+[ビルド] lasts 4 days
+[テスト準備] lasts 6 days
+[設計] -> [ビルド]
+[設計] -> [テスト準備]
+@endgantt
+
+3. エイリアス
+@startgantt gantt.3_alias
+[プロトタイプを設計] as [設計] lasts 15 days
+[プロトタイプをテスト] as [テスト] lasts 10 days
+[テスト] starts at [設計]'s end
+@endgantt
+
+4. 色指定
+@startgantt gantt.4_color
+[プロトタイプを設計] lasts 13 days
+[テスト] lasts 4 days
+[テスト] starts at [プロトタイプを設計]'s end
+[プロトタイプを設計] is colored in Fuchsia/FireBrick 
+[テスト] is colored in GreenYellow/Green 
+@endgantt
+
+5. マイルストーン
+@startgantt gantt.5_milestone
+[プロトタイプをテスト] lasts 10 days
+[プロトタイプが完成] happens at [プロトタイプをテスト]'s end
+[製造ラインの準備] lasts 12 days
+[製造ラインの準備] starts at [プロトタイプをテスト]'s end
+@endgantt
+
+6. 日付
+@startgantt gantt.6_date
+Project starts the 20th of september 2017
+[プロトタイプを設計] as [タスク1] lasts 13 days
+[タスク1] is colored in Lavender/LightBlue
+@endgantt
+
+7. 休日
+@startgantt gantt.7_holiday
+project starts the 2018/04/09
+saturday are closed
+sunday are closed
+2018/05/01 is closed
+2018/04/17 to 2018/04/19 is closed
+[設計] lasts 14 days
+[テスト] lasts 4 days
+[テスト] starts at [設計]'s end
+[設計] is colored in Fuchsia/FireBrick 
+[テスト] is colored in GreenYellow/Green 
+@endgantt
+
+8. セパレーター
+@startgantt gantt.8_separator
+[Task1] lasts 10 days
+then [Task2] lasts 4 days
+-- Phase Two --
+then [Task3] lasts 5 days
+then [Task4] lasts 6 days
+@endgantt
+
+9. 複雑な例
+@startgantt gantt.9_complicated
+[プロトタイプを設計] lasts 13 days and is colored in Lavender/LightBlue
+[プロトタイプをテスト] lasts 9 days and is colored in Coral/Green and starts 3 days after [プロトタイプを設計]'s end
+[テストを実装] lasts 5 days and ends at [プロトタイプを設計]'s end
+[テストプログラマの雇用] lasts 6 days and ends at [テストを実装]'s start
+[テストの実施] is colored in Coral/Green
+[テストの実施] starts 1 day before [プロトタイプをテスト]'s start and ends at [プロトタイプをテスト]'s end
+@endgantt
+
+
+@startgantt example1
+project starts the 2018/04/09
+saturday are closed
+sunday are closed
+2018/04/30 is closed
+2018/05/03 is closed
+2018/05/04 is closed
+
+[要件定義] lasts 5 days
+[基本設計] lasts 5 days
+[基本設計] starts at [要件定義]'s end
+[外部設計] lasts 5 days
+[外部設計] starts at [基本設計]'s end
+[詳細設計] lasts 5 days
+[詳細設計] starts at [外部設計]'s end
+[実装] lasts 20 days
+[実装] starts at [詳細設計]'s end
+[単体テスト] lasts 5 days
+[単体テスト] starts at [実装]'s end
+[結合テスト] lasts 5 days
+[結合テスト] starts at [単体テスト]'s end
+[総合テスト] lasts 5 days
+[総合テスト] starts at [結合テスト]'s end
+[リリース] happens at [総合テスト]'s end
+@endgantt
+
+@startgantt example2
+project starts the 2018/04/09
+saturday are closed
+sunday are closed
+2018/05/01 is closed
+2018/04/17 to 2018/04/19 is closed
+[Prototype design] lasts 14 days
+[Test prototype] lasts 4 days
+[Test prototype] starts at [Prototype design]'s end
+[Prototype design] is colored in Fuchsia/FireBrick 
+[Test prototype] is colored in GreenYellow/Green 
+@endgantt
