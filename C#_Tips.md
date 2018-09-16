@@ -156,3 +156,101 @@ namespace IEnumerableSample
     }
 }
 ```
+
+# `IEquatable<T>`の実装
+
+- `IEquatable<T>`を実装する
+- `Object.Equal()`をオーバーライドする
+- `Object.GetHashCode()`をオーバーライドする
+
+基底クラス
+
+```cs {.line-numbers}
+public class Base : IEquatable<Base>
+{
+    public Base()
+    {
+    }
+
+    public int Id { get; set; } = 0;
+
+    public double Value { get; set; } = 0.0;
+
+    public string Name { get; set; } = string.Empty;
+
+    public override bool Equals( object rhs )
+    {
+        return this.Equals( rhs as Base );
+    }
+
+    public bool Equals( Base rhs )
+    {
+        if ( ReferenceEquals( rhs, null ) )
+            return false;
+
+        if ( ReferenceEquals( this, rhs ) )
+            return true;
+
+        if ( this.GetType() != rhs.GetType() )
+            return false;
+
+        return ( this.Id == rhs.Id ) &&
+                ( this.Value == rhs.Value ) &&
+                ( this.Name == rhs.Name );
+    }
+
+    public override int GetHashCode()
+    {
+        return this.Id.GetHashCode();
+    }
+}
+```
+
+派生クラス
+
+```cs {.line-numbers}
+public class Derived : Base, IEquatable<Derived>
+{
+    public Derived()
+    {
+    }
+
+    public double DerivedValue { get; set; } = 0.0;
+
+    public override bool Equals( object rhs )
+    {
+        return this.Equals( rhs as Derived );
+    }
+
+    public bool Equals( Derived rhs )
+    {
+        if ( ReferenceEquals( rhs, null ) )
+            return false;
+
+        if ( ReferenceEquals( this, rhs ) )
+            return true;
+
+        if ( this.GetType() != rhs.GetType() )
+            return false;
+
+        return ( base.Equals( rhs ) ) &&
+                ( this.DerivedValue == rhs.DerivedValue );
+    }
+
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
+    }
+}
+```
+
+## `Object.GetHashCode()`のオーバーライド
+
+戻り値（ハッシュ値）について
+- オブジェクトが等しい場合（Equalsがtrueの場合）、同じハッシュ値を返す必要がある
+- メソッド呼び出し等の操作により、ハッシュ値が変更されてはならない
+- 異なるオブジェクトであっても、同じハッシュ値を返しても良い
+    - この場合、検索効率が落ちる
+
+一般的な実装方法
+- 全ての不変フィールドに対してXORをとった値を返す
