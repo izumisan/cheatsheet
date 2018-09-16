@@ -254,3 +254,21 @@ public class Derived : Base, IEquatable<Derived>
 
 一般的な実装方法
 - 全ての不変フィールドに対してXORをとった値を返す
+
+
+# 列挙型に対する操作
+
+- 列挙型に指定した値が定義されているか否かを確認する
+    ```cs
+    Enum.IsDefined( typeof( Month ), 1 )  // => true
+    Enum.IsDefined( typeof( Month ), 2 )  // => true
+    Enum.IsDefined( typeof( Month ), 13 )  // => false
+    ```
+- 文字列を列挙型に変換する
+    ```cs
+    Enum.Parse( typeof( Month ), "January" )  // => Month.January
+    ```
+- 全ての要素を列挙する
+    ```cs
+    Enum.GetValues( typeof( Month ) ).Cast<Month>()  // => [ Month.January, ... , Month.December ]
+    ```
