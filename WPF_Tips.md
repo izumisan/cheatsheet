@@ -65,9 +65,18 @@ public string Name
 - [添付プロパティの概要 - Microsoft Docs](https://docs.microsoft.com/ja-jp/dotnet/framework/wpf/advanced/attached-properties-overview)
 - [Dependency Properties - WPF Tutorial.net](http://www.wpftutorial.net/DependencyProperties.html)
 
+# ルーティングイベント
+
+- トンネルイベント
+    - **ルート要素から**イベント発生要素までイベントが処理されるまで子要素に伝搬していく
+    - Preview～の命名規則で実装されている
+- バブルイベント
+    - イベント発生要素からイベントが処理されるまで親要素に伝搬していく
+    - トンネルイベント後にバブルイベントが発行される
 
 # 参考
 
 - [WPF4.5入門 - かずきのBlog@hatena](https://blog.okazuki.jp/entry/2014/12/27/200015)
 - [WPFアーキテクチャ - Microsoft Docs](https://docs.microsoft.com/ja-jp/dotnet/framework/wpf/advanced/wpf-architecture)
 - [WPF Tutorial.net](http://www.wpftutorial.net/Home.html)
+    - [Learn WPF in one Week - WPF Tutorial.net](http://www.wpftutorial.net/LearnWPFin14Days.html)
