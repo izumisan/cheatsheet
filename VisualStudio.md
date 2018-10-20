@@ -18,7 +18,45 @@ XCOPY /Y /I /E /D {source} {dest}
 
 # C++
 
-## UTF-8を使う
+# Win32(x86), x64
+
+- プラットフォームが混在している場合、ビルドはできるが実行はできない（エラーとなる）らしい
+- 基本的にEXEとDLLのプラットフォームは合わせる必要がある
+
+## 64bit OS
+
+|EXE|DLL|実行可否|Note|
+|:-:|:-:|:-:|---|
+|x64|-|OK|-|
+|x64|x64|OK|-|
+|x64|win32(x86)|NG|EXEとDLLでCPUアーキテクチャが異なる|
+|win32(x86)|-|OK|-|
+|win32(x86)|x64|NG|EXEとDLLでCPUアーキテクチャが異なる|
+|win32(x86)|win32(x86)|OK|-|
+
+## 32bit OS
+
+|EXE|DLL|実行可否|Note|
+|:-:|:-:|:-:|---|
+|x64|-|NG|x64EXEは実行できない|
+|x64|x64|NG|x64EXEは実行できない|
+|x64|win32(x86)|NG|x64EXEは実行できない|
+|win32(x86)|-|OK|-|
+|win32(x86)|x64|NG|EXEとDLLでCPUアーキテクチャが異なる|
+|win32(x86)|win32(x86)|OK|-|
+
+## Any CPU ？
+
+- .NET用
+- 起動または呼び出し元に応じてCPUプロセスが異なる
+    - 64bitOSから実行されたAnyCPU EXEは、64bitプロセスとして実行する
+    - 32bitOSから実行されたAnyCPU EXEは、32bitプロセスとして実行する
+    - 64bitプロセスから呼び出されたAnyCPU DLLは、64bitプロセスとして実行する
+    - 32bitプロセスから呼び出されたAnyCPU DLLは、32bitプロセスとして実行する
+- 32bitOSで、AnyCPU EXEからx86 DLLは呼び出せる
+- 64bitOSで、AnyCPU EXEからx86 DLLは呼び出せない？
+
+# UTF-8を使う
 
 - ソースコードが**BOMありUTF-8**なら、コンパイラが文字コードを自動判別してくれる（らしい）
 - **BOMなしUTF-8**の場合、コンパイルオプションで文字コードを指定する
