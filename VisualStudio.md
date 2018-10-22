@@ -56,6 +56,21 @@ XCOPY /Y /I /E /D {source} {dest}
 - 32bitOSで、AnyCPU EXEからx86 DLLは呼び出せる
 - 64bitOSで、AnyCPU EXEからx86 DLLは呼び出せない？
 
+## プラットフォーム（x86 or x64）を確認する
+
+VisualStudioの開発者用コマンドプロントで、下記コマンドを実行する
+```
+> dumpbin /headers path/to/file
+```
+
+# DLLのエクスポート関数を確認する
+
+VisualStudioの開発者用コマンドプロントで、下記コマンドを実行する
+```
+> dumpbin /exports path/to/file
+```
+
+
 # UTF-8を使う
 
 - ソースコードが**BOMありUTF-8**なら、コンパイラが文字コードを自動判別してくれる（らしい）
