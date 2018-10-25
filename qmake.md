@@ -81,3 +81,8 @@ proファイルのディレクトリ
     ```
     > qmake -tp vc -r
     ```
+- UTF-8を指定する
+    ```
+    QMAKE_CXXFLAGS += /source-charset:utf-8
+    QMAKE_CXXFLAGS += /execution-charset:utf-8
+    ```
