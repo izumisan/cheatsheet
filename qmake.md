@@ -52,6 +52,11 @@
 
 適用するQtモジュールを指定する
 
+- core
+- gui
+- quick
+- testlib
+
 ## QMAKE_PRE_LINK
 
 ビルド前コマンド
@@ -67,11 +72,23 @@ Makefileの出力先ディレクトリ
 ## \_PRO_FILE_
 
 proファイルパス
+
 ## \_PRO_FILE_PWD_
 
 proファイルのディレクトリ
 
-# VisualStudio
+# サンプル集
+
+- ビルド構成による切り替え
+    ```
+    CONFIG(debug, debug|relase) {
+        # for debug
+    } else {
+        # for release
+    }
+    ```
+
+# VisualStudio向け
 
 - .vcprojファイルを作成する
     ```
