@@ -33,6 +33,9 @@
 - static / staticlib
 - app_bundle : mac用
 - lib_bundle : mac用
+- no_keywords
+    - moc用キーワード（`signals`, `slots`, `emit`）を無効にする（3rdパーティとキーワードが被った場合に使用）
+    - `no_keywords`でも、`Q_SIGNALS`, `Q_SLOTS`, `Q_EMIT`で、Qtシグナル/スロットが利用できる
 
 ## INCLUDEPATH
 
