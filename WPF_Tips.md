@@ -74,6 +74,32 @@ public string Name
     - イベント発生要素からイベントが処理されるまで親要素に伝搬していく
     - トンネルイベント後にバブルイベントが発行される
 
+# バインディングモード
+
+|モード|説明|
+|---|---|
+|OneWay|ソースからターゲットへの一方通行の同期|
+|TwoWay|双方向の同期|
+|OneWayToSource|ターゲットからソースへの一方通行の同期|
+|OneTime|ソースからターゲットへの初回のみ同期|
+
+-  ソース？ターゲット？
+    - `<Label Content={Binding Name}/>`の場合
+        - ソース：　Nameプロパティ
+        - ターゲット：　LabelのContentプロパティ
+
+## UpdateSourceTriggerプロパティ
+
+`TwoWay`又は`OneWayToSource`の時、`UpdateSourceTrigger`で**ソース側に通知するタイミング**を指定できる
+
+|値|説明|
+|---|---|
+|Default||
+|PropertyChanged|プロパティが変更したタイミングで、ソース側に通知（変更）される|
+|LostFocus|フォーカスが外れたタイミングで、ソース側に通知（更新）される|
+|Explicit|UpdateSourceメソッドで、明示的にソースの更新を指示した場合に更新される|
+
+
 # 参考
 
 - [WPF4.5入門 - かずきのBlog@hatena](https://blog.okazuki.jp/entry/2014/12/27/200015)
