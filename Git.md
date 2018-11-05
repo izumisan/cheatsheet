@@ -385,6 +385,47 @@ branchBにコミットすべきところ、間違えてbranchAにコミットし
     > git show タグ名
     ```
 
+# サブモジュール（`submodule`）
+
+外部リポジトリの**特定のコミット**を自リポジトリのサブディレクトリに取り込む
+
+# サブツリー（`subtree`）
+
+外部リポジトリを自リポジトリのサブディレクトリに取り込む  
+取り込んだ後は自リポジトリ内で通常同様の管理が可能
+
+
+- 外部リポジトリをリモートに登録する
+    ```
+    > git remote add <リモート名> <URL>
+    ```
+
+- 外部リポジトリを自リポジトリのサブディレクトリに取り込む
+    ```bash
+    # --squashオプションをつけないと、外部リポジトリの履歴を全て自リポジトリに取り込んでしまう
+    > git subtree add --squash --prefix=<サブディレクトリ名> <リモート名> <ブランチ名>
+    ```
+
+- 外部リポジトリの更新を取り込む
+    ```
+    > git subtree pull --squash --prefix=<サブディレクトリ名> <リモート名> <ブランチ名>
+    ```
+
+- 外部リポジトリにpushする
+    ```
+    > git subtree push --squash --prefix=<サブディレクトリ名> <リモート名> <ブランチ名>
+    ```
+
+## example
+
+```bash
+# 外部リポジトリ"https://xxxxx/foo.git"のmasterブランチを
+# 自リポジトリの"foo"ディレクトリに取り込む
+> git remote foolib https://xxxxx/foo.git
+> git subtree add --prefix=foo --squash foolib master
+> git subtree pull --prefix=foo --squash foolib master
+```
+
 # .gitignore
 
 - /を含まない指定（例: hoge）
