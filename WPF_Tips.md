@@ -100,6 +100,70 @@ public string Name
 |Explicit|UpdateSourceメソッドで、明示的にソースの更新を指示した場合に更新される|
 
 
+# Trigger, DataTrigger, EventTrigger
+
+## `<Trigger>`
+
+- プロパティ（Dependency Property）変更時、指定したセッターを実行する
+
+## `<DataTrigger>`
+
+- プロパティ変更時、指定したセッターを実行する
+- `Trigger`と異なり、DependencyProperty以外にも指定できる
+
+## `<EventTrigger>`
+
+- 指定したイベント発行時、指定したアクションを実行する
+- ストリーボードを開始（`BeginStoryboard`）するのによく利用される
+
+## その他
+
+- MultiTrigger
+- MultiDataTrigger
+
+
+## 参考
+
+- [WPF Tutorial.net](https://www.wpf-tutorial.com/styles/trigger-datatrigger-event-trigger/)
+
+# Blend付属トリガー・アクション・ビヘイビア
+
+- Blend for VisualStudioに含まれているトリガー・アクション・ビヘイビア
+- WPF標準（FrameworkElement）ではないが、Blend自体は標準で同梱されるので、実質、標準的に利用可能
+- 標準のものより高機能
+- 標準と同名のものもあるため注意
+- 使用の際、下記を追加する
+    ```
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+    ```
+
+## トリガー
+
+- DataTrigger
+- EventTrigger
+- KeyTrigger
+- TimerTrigger
+- PropertyChangedEventTrigger
+- StoryboardCompletedTrigger
+
+# アクション
+
+- InvokeCommandAction
+- CallMethodAction
+- ChangePropertyAction
+- ControlStoryboardAction
+- LaunchUriOrFileAction
+- GoToStateAction
+    - ビジュアル・ステート（外観状態）を変化させるアクション
+
+# ビヘイビア
+
+- FluidMoveBehavior 
+- MouseDragElementBehavior 
+- TranslateZoomRotateBehavior 
+
+
 # 参考
 
 - [WPF4.5入門 - かずきのBlog@hatena](https://blog.okazuki.jp/entry/2014/12/27/200015)
