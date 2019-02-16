@@ -43,6 +43,10 @@
     - プレビュー画面はデフォルトのものとは別
     - [公式ドキュメント](https://shd101wyy.github.io/markdown-preview-enhanced/#/)が充実している 
 
+- Past Image
+    - クリップボードに保存されたイメージをmarkdownに直接貼り付けるる（クリップボード画像のファイル保存＋markdownリンク作成）できる
+    - 「`Windows` + `Shift` + `S`」で、範囲指定でキャプチャーできる
+
 Markdown関連で、機能ごとに複数の拡張機能をいれたりしていたけど、Markdown All in OneとMarkdown Preview Enhancedの2つさえ入れていれば、Markdown周りはほぼカバーされる.
 
 ## Git関連
@@ -56,6 +60,14 @@ Markdown関連で、機能ごとに複数の拡張機能をいれたりしてい
 - Rainbow CSV
     - csvファイルをカラム毎に色分けする
     - 地味にいい
-
 - Excel Viewer
     - csvファイルやxlsxファイルを表形式で表示する
+- PlantUML
+    - テキストベースでUMLダイアグラムを作図できる
+    - 要java
+- Polacode
+    - ソースコードをきれいなキャプチャー画像として保存する
+        1. コマンドパレットから`polacode`タブを起動する
+        1. 対象のソースコードをコピーして、Polacodeのテキストエリア部分にペーストする
+        1. アイコンクリック
+
