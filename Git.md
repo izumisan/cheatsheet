@@ -123,6 +123,16 @@ push.default設定値
 > git config --global push.default simple
 ```
 
+## git configを切り替える（Conditional includes）
+
+TODO
+
+## 参考リンク
+
+- [git-config Documentation](https://git-scm.com/docs/git-config)
+- [git configをプロジェクトによって使い分ける](https://qiita.com/htanjo/items/51245c08327a31da73f4)
+
+
 # ローカルの変更を元に戻す
 
 ## ステージングを解除する（`git reset`）
