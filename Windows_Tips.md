@@ -12,3 +12,7 @@
 - `Windows` + `G`
     - ゲームバーを開く
     - 動画キャプチャー可能
+
+# 「送る」メニュー
+
+- {ユーザフォルダ}\AppData\Roaming\Microsoft\Windows\SendTo
