@@ -135,8 +135,12 @@ public string Name
 - 使用の際、下記を追加する
     ```
     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    ```
+    ```
     xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
     ```
+    - `Microsoft.Expression.Interactions`を参照追加すること
+        - `Microsoft.Expression.Interactions.dll`は、VS2017から個別コンポートネントにある`Blend for Visual Studio SDK`を選択してインストールする必要がある
 
 ## トリガー
 
