@@ -39,6 +39,29 @@ https://yarnpkg.com/ja/docs/install#alternatives-stable
 
 # タスクの実行
 
+```sh
+# package.jsonに定義したfooスクリプトを実行する
+> yarn run foo
+
+# runは省略可能
+> yarn foo
+
+# スクリプト一覧を表示する
+> yarn run
+```
+
 # npmコマンドとの比較
 
-- [npm からの移行（公式ページ）](https://yarnpkg.com/ja/docs/migrating-from-npm)参照
+|npm|yarn|
+|---|---|
+|npm install|yarn install|
+|`npm install パッケージ名`|`yarm add パッケージ名`|
+|`npm install --global パッケージ名`|`yarn global add パッケージ名`|
+|npm outdated|yarn outdated|
+|`npm update`|`yarn upgrade`|
+|`npm uninstall パッケージ名`|`yarn remove パッケージ名`|
+|npm run スクリプト名|yarn run スクリプト名<br>yarn スクリプト名|
+
+# 参考
+
+- [公式ドキュメント - yarn](https://yarnpkg.com/ja/docs)
