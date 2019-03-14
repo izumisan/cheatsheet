@@ -114,9 +114,17 @@ VisualStudioの開発者用コマンドプロントで、下記コマンドを�
 - コンソールプログラムに対し、`/execution-charset:utf-8`や`/utf-8`を指定すると、コマンドプロンプトが文字化けする
 - コンパイルオプションは、[プロパティ] - [C/C++] - [コマンドライン] ページの「追加のオプション」に指定する
 
-## Tips
+# コンパイラオプション
 
 - [コンパラオプション一覧 (Microsoft Docs)](https://docs.microsoft.com/ja-jp/cpp/build/reference/compiler-options-listed-by-category)
+
+# `std::min()/std::max()`がエラーになる
+
+`windows.h`で`min/max`がマクロ定義されているため、algorithmヘッダの`std::min()/std::max()`がマクロ置換されてしまい、コンパイルエラーとなる.
+
+`NOMINMAX`を定義することで、マクロ展開が抑制される.
+
+- [windows.hのmin/maxマクロ回避策４パターン](https://yohhoy.hatenadiary.jp/entry/20120115/p1)
 
 # C++（CLRプロジェクト）
 
