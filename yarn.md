@@ -25,11 +25,52 @@ https://yarnpkg.com/ja/docs/install#alternatives-stable
 >
 > これらの理由から、使用中の OS に最も適した方法で Yarn をインストールすることを強くお勧めします。
 
-# 初期化（yarn init）
+# プロジェクトの初期化
 
 # パッケージのインストール
 
+```sh
+# package.jsonに従いインストールする
+> yarn install
+
+# オフラインモードでインストールする
+> yarn install --offline
+
+# インストールしたファイルが削除されていないかを確認する
+> yarn install --check-files
+
+# パッケージを指定してインストールする
+> yarn add パッケージ名
+> yarn add パッケージ名 --dev
+> yarn add パッケージ名 --optional
+> yarn add パッケージ名 --optional
+```
+
+## 依存関係の種別
+
+- `dependencies`
+    - 通常の依存関係
+    - 実行時に必要なパッケージ
+- `devDependencies`
+    - 開発用パッケージ
+- `optionalDependencies`
+    - 省略可能なパッケージ
+- `peerDependencies`
+    - パッケージ公開時用
+
+
 # パッケージ情報
+
+```sh
+# インストールされているパッケージ一覧を表示する
+> yarn list
+
+# 深さ0までのパッケージ一覧を表示する
+> yarn list --depth=0
+
+# パッケージ情報を表示する
+> yarn info パッケージ名
+```
 
 # パッケージのアップデート
 
