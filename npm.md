@@ -184,4 +184,6 @@ npmboxを使うと依存モジュールを含めてパッケージ化できる�
 
 # yarn
 
-TODO
+npmと同様のjavascript用パッケージマネージャー
+
+- [yarmノート](yarn.md)
