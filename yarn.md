@@ -74,7 +74,21 @@ https://yarnpkg.com/ja/docs/install#alternatives-stable
 
 # パッケージのアップデート
 
+```sh
+# 全てのパッケージを最新バージョンにアップデートする
+> yarn upgrade
+
+# 指定したパッケージをアップデートする
+> yarn upgrade パッケージ名
+> yarn upgrade パッケージ名@バージョン
+> yarn upgrade パッケージ名@タグ名
+```
+
 # パッケージのアンインストール
+
+```
+> yarn remove パッケージ名
+```
 
 # パッケージの検索
 
