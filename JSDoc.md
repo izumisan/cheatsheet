@@ -38,7 +38,6 @@ function foo() {
     ...
 }
 ```
-
 ```js
 /**
  * 複数行スタイル
@@ -47,10 +46,23 @@ function() {
     ...
 }
 ```
+```js
+/**
+ * 長い説明文で改行が必要な場合、
+ *    半角スペース4つでインデントする
+ *
+ * @return 長い説明文の改行時、説明文の先頭で
+ *         インデントを合わせるのは推奨していません
+ */
+function() {
+    ...
+}
+```
+
 
 # アノテーション（JSDocタグ）
 
-使用頻度が高そうなタグ
+## 使用頻度が高そうなタグ
 
 |タグ|説明|
 |---|---|
@@ -58,10 +70,37 @@ function() {
 |[@type](http://usejsdoc.org/tags-type.html)|変数の型|
 |[@param](http://usejsdoc.org/tags-param.html)|関数の引数|
 |[@return](http://usejsdoc.org/tags-returns.html)|戻り値|
-|[@throws](http://usejsdoc.org/tags-throws.html)|例外|
+|[@throws](http://usejsdoc.org/tags-throws.html)|スローする例外説明|
 |[@static](http://usejsdoc.org/tags-static.html)||
 |[@constant](http://usejsdoc.org/tags-constant.html)||
-|[@class/@constructor](http://usejsdoc.org/tags-class.html)||
+|[@class/@constructor](http://usejsdoc.org/tags-class.html)|クラス説明|
 |[@description](http://usejsdoc.org/tags-description.html)||
 |[@todo](http://usejsdoc.org/tags-todo.html)|タスク|
-|[@ignore](http://usejsdoc.org/tags-ignore.html)|ドキュメントから除外|
+|[@ignore](http://usejsdoc.org/tags-ignore.html)|ドキュメントから除外する|
+
+## `@param`
+
+- `@param {型名} 変数名 説明文`
+
+```js
+/**
+ * 関数の説明文
+ * @param {string} bar 引数barの説明文
+ * @param {number} baz 引数bazの説明文
+ */
+function foo( bar, baz ) {
+    ...
+}
+```
+
+## `@type`
+
+- `@type {型名}`
+
+```js
+/**
+ * fooの説明文
+ * @type {string}
+ */
+var foo;
+```
