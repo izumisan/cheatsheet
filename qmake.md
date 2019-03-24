@@ -18,16 +18,18 @@
 
 - app
 - lib
+    - `CONFIG`で`dll`又は`static`を指定する
 - subdirs
     - SUBDIRSでサブディレクトリを指定する
 
 ## CONFIG
 
-- debug
-- release
-- c++11
-- c++14
+- c++11 / c++14 / c++17
+- build_all
+    - `debug_and_release`と合わせて指定することにより、ビルド時、debugビルド、releaseビルドが共に行われる
 - ordered
+    - `TEMPLATE=subdirs`の場合に使用する
+    - `SUBDIRS`に指定したプロジェクト順にビルドを行う
 - console
 - dll / shared
 - static / staticlib
@@ -45,40 +47,55 @@
 
 ## DEFINES
 
+- マクロ定義
+
 ## LIBS
+
+- ライブラリを指定する
+- `-L`, `-l`オプションが有効
+    - `-L`: ライブラリディレクトリ
+    - `-l`: ライブラリ名（xxx.lib, libxxx.a）
+
+## PRE_TARGETDEPS
+
+- appプロジェクト側で、依存する（リンクする）スタティックライブラリを指定する
+- appビルド時、ライブラリ側が更新されている場合、再リンクされる
 
 ## DESTDIR
 
+- ビルドターゲット（*.exe, *.lib, *.dll等）の出力先
+
 ## DLLDESTDIR
+
+- dllファイルの出力先
 
 ## QT
 
-適用するQtモジュールを指定する
-
-- core
-- gui
-- quick
-- testlib
+- 適用するQtモジュールを指定する
+    - core
+    - gui
+    - quick
+    - testlib
 
 ## QMAKE_PRE_LINK
 
-ビルド前コマンド
+- ビルド前コマンド
 
 ## QMAKE_POST_LINK
 
-ビルド後コマンド
+- ビルド後コマンド
 
 ## OUT_PWD
 
-Makefileの出力先ディレクトリ
+- Makefileの出力先ディレクトリ
 
 ## \_PRO_FILE_
 
-proファイルパス
+- proファイルパス
 
 ## \_PRO_FILE_PWD_
 
-proファイルのディレクトリ
+- proファイルのディレクトリ
 
 # サンプル集
 
@@ -89,6 +106,22 @@ proファイルのディレクトリ
     } else {
         # for release
     }
+    ```
+- コンパイラによる切り替え
+    ```
+    msvc {
+        # Visual Studio用オプション設定
+    }
+    mingw {
+        # MINGW用オプション設定
+    }
+
+    msvc: xxxx
+    mingw: xxxx
+    ```
+- debugビルド/releaseビルドを同時に実施する
+    ```
+    CONFIG += debug_and_release build_all
     ```
 
 # VisualStudio向け
