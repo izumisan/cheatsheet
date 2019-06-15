@@ -38,6 +38,14 @@ XCOPY /Y /I /E /D {source} {dest}
 
 [リンカー] - [システム] - [サブシステム]に、`コンソール (/SUBSYSTEM:CONSOLE)` を設定する
 
+# SDLチェックを無効にする
+
+- SDL（Security Development Lifecycle）チェックが有効な場合、`strcpy()`や`scanf()`が警告ではなくエラーとして扱われる.
+- `strcpy()`や`scanf()`等は`_CRT_SECURE_NO_WARNINGS`を定義すれば警告抑制でエラー回避できるが、`deprecated`属性が指定した関数等の使用時はビルドに失敗する（警告ではなくエラーとなる）
+- SDLチェックを無効にすると、VisualStudio特有のエラーチェックを無効化し、警告として扱われるようになる.
+- `_CRT_SECURE_NO_WARNINGS`を指定すると`strcpy()`や`scanf()`等の警告は抑制されるが、SDLチェックを無効にした場合、`strcpy()`や`scanf()`等は警告となる.
+
+
 # Win32(x86), x64
 
 - プラットフォームが混在している場合、ビルドはできるが実行はできない（エラーとなる）らしい
