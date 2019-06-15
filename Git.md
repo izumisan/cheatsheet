@@ -282,6 +282,21 @@ branchBにコミットすべきところ、間違えてbranchAにコミットし
 > git remote -v
 ```
 
+## リモートリポジトリを登録する
+
+```
+> git remote add <リモート名> <URL>
+```
+
+- 例
+    ```bash
+    # hogeブランチを'origin'という名前（識別子）で、
+    # リモートブランチとして登録する.
+    > git remote add origin https://xxx/xxx/xxx/hoge.git
+    ```
+
+# リモートブランチ
+
 ## プッシュ（push）
 
 ```
@@ -306,19 +321,6 @@ branchBにコミットすべきところ、間違えてbranchAにコミットし
     ```
     引数を省略して単に`git push`すると、**カレントブランチ**が**origin/master**にプッシュされてしまうので、configでpushのデフォルト挙動を設定しておいた方が良い.
 
-## リモートリポジトリを登録する
-
-```
-> git remote add <リモート名> <URL>
-```
-
-- 例
-    ```bash
-    # hogeブランチを'origin'という名前（識別子）で、
-    # リモートブランチとして登録する.
-    > git remote add origin https://xxx/xxx/xxx/hoge.git
-    ```
-
 ## 追跡ブランチ（upstream）を登録する
 
 ```bash
@@ -330,6 +332,28 @@ branchBにコミットすべきところ、間違えてbranchAにコミットし
     ```
     > git branch -vv
     ```
+
+## リモートブランチを削除する
+
+```bash
+# リモートブランチfooを削除する
+$ git push --delete origin foo
+
+# これでも良い
+$ git push origin :foo
+```
+
+## リモート追跡ブランチを削除する
+
+リモートリポジトリからブランチが削除されても、ローカルブランチに取り込まれている追跡ブランチ（remotes/origin/foo）はローカルに残ったままとなる.
+
+ローカルの追跡ブランチを削除するには、削除状況をフェッチする必要がある
+
+```bash
+# リモートリポジトリで削除されたブランチに対応するローカルの追跡ブランチを削除する
+$ git fetch --prune
+$ git fetch -p  # 省略形
+```
 
 ## プル（pull）
 
