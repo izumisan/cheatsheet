@@ -123,6 +123,13 @@ push.default設定値
 > git config --global push.default simple
 ```
 
+## fetch/pull時、削除されたリモートブランチの追跡ブランチを削除する（`fetch.prune`）
+
+```bash
+# git fetch --pruneをデフォルト挙動に設定する
+$ git config --global fetch.prune true
+```
+
 ## git configを切り替える（Conditional includes）
 
 TODO
