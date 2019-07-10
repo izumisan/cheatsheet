@@ -18,6 +18,13 @@ Visual Studioに関する覚書
 - [Configuration Transform](https://marketplace.visualstudio.com/items?itemName=GolanAvraham.ConfigurationTransform)
     - app.configをdebug用とrelease用で切り替えることができる
     - ASP.netの開発ツールを入れておかないと、この拡張機能で作成したapp.debug.config/app.release.configを含むプロジェクトがビルドできない
+- [Toggle Comment](https://marketplace.visualstudio.com/items?itemName=munyabe.ToggleComment)
+    - `Ctrl` + `/` でコメントの切り替えができる
+- [VSColorOutput](https://marketplace.visualstudio.com/items?itemName=MikeWard-AnnArbor.VSColorOutput)
+    - 出力ウィンドウで、警告やエラーを色付けする
+- [Fix File Encoding](https://marketplace.visualstudio.com/items?itemName=SergeyVlasov.FixFileEncoding)
+    - BOMなしUTF-8で保存されるようになる
+
 
 # nugetパッケージのオフラインインストール
 
