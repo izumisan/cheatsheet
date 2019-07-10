@@ -33,7 +33,7 @@
     -  LaTeXで数式がかける
     -  Markdown All in One, Markdown Preview Enhancedで代用可能
 
-- **Markdown All in One**
+- ~~Markdown All in One~~
     - キーボードショートカット、チェックボックス、数式レンダリングなど、いろいろ入っている
     - 左のエクスプローラー部にOUTLINEが表示されるのが地味に便利.
 
@@ -47,11 +47,16 @@
     - クリップボードに保存されたイメージをmarkdownに直接貼り付けるる（クリップボード画像のファイル保存＋markdownリンク作成）できる
     - 「`Windows` + `Shift` + `S`」で、範囲指定でキャプチャーできる
 
-Markdown関連で、機能ごとに複数の拡張機能をいれたりしていたけど、Markdown All in OneとMarkdown Preview Enhancedの2つさえ入れていれば、Markdown周りはほぼカバーされる.
+Markdown関連で機能ごとに複数の拡張機能をいれたりしていたけど、VSCodeの基本機能で十分だったりする.  
+保険でMarkdown Preview Enhancedを入れておけば、だいたい何とかなる.
 
 ## Git関連
 
 - Git History
+    - ロググラフを可視化する
+- Git Graph
+    - ロググラフを可視化する
+    - Git Historyより軽くて、機能が充実している
 - Git Tree Compare
 - GitLens
 
