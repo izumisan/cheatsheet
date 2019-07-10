@@ -1,6 +1,6 @@
 # Visual Studio
 
-Visual Studioの関する覚書
+Visual Studioに関する覚書
 
 # ショートカットキーを変更する
 
@@ -12,6 +12,12 @@ Visual Studioの関する覚書
 |---|---|
 |キーボードマップ|`Visual C++ 6`|
 |エディターコンテキストメニュー, コードウィンドウ, ヘッダーコードファイルの切り替え|`F4`|
+
+# 拡張機能
+
+- [Configuration Transform](https://marketplace.visualstudio.com/items?itemName=GolanAvraham.ConfigurationTransform)
+    - app.configをdebug用とrelease用で切り替えることができる
+    - ASP.netの開発ツールを入れておかないと、この拡張機能で作成したapp.debug.config/app.release.configを含むプロジェクトがビルドできない
 
 # nugetパッケージのオフラインインストール
 
