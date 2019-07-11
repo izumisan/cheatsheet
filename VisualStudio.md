@@ -22,6 +22,8 @@ Visual Studioに関する覚書
     - `Ctrl` + `/` でコメントの切り替えができる
 - [VSColorOutput](https://marketplace.visualstudio.com/items?itemName=MikeWard-AnnArbor.VSColorOutput)
     - 出力ウィンドウで、警告やエラーを色付けする
+    - デバッグウィンドウでデバッグメッセージにタイムスタンプを追加する
+    - VS2017では最新版ではなく、[v2.6.4](https://github.com/mike-ward/VSColorOutput/releases/tag/v2.6.4)が推奨されている
 - [Fix File Encoding](https://marketplace.visualstudio.com/items?itemName=SergeyVlasov.FixFileEncoding)
     - BOMなしUTF-8で保存されるようになる
 
