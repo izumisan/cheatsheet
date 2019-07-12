@@ -90,6 +90,12 @@
 
 - ビルド後コマンド
 
+## QT_ARCH
+
+- ターゲットアーキテクチャ
+    - 32bitターゲットの場合、`i386`
+    - 64bitターゲットの場合、`x86_64`
+
 ## OUT_PWD
 
 - Makefileの出力先ディレクトリ
@@ -114,6 +120,7 @@
     ```
 - コンパイラによる切り替え
     ```
+    # 複数行ver
     msvc {
         # Visual Studio用オプション設定
     }
@@ -121,6 +128,7 @@
         # MINGW用オプション設定
     }
 
+    # 一行ver
     msvc: xxxx
     mingw: xxxx
     ```
@@ -128,6 +136,13 @@
     ```
     CONFIG += debug_and_release build_all
     ```
+
+- ターゲットアーキテクチャ（32bit/64bi）による切り替え
+    ```
+    contains(QT_ARCH, i386): message("32bit")
+    contains(QT_ARCH, x86_64): message("64bit")
+    ```
+
 
 # VisualStudio向け
 
