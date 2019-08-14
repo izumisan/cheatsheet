@@ -60,6 +60,10 @@ Markdown関連で機能ごとに複数の拡張機能をいれたりしていた
 - Git Tree Compare
 - GitLens
 
+## コーディング関連
+
+- EditorConfig for VS Code
+
 ## その他
 
 - Rainbow CSV
