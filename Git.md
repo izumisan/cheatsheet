@@ -134,6 +134,13 @@ $ git config --global fetch.prune true
 
 TODO
 
+## "Filename too long" のエラーに対処する（`core.longpaths`）
+
+```bash
+# 長いパスを扱えるようにする
+$ git config --local core.longpaths true
+```
+
 ## 参考リンク
 
 - [git-config Documentation](https://git-scm.com/docs/git-config)
