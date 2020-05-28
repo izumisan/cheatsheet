@@ -140,7 +140,8 @@ public string Name
     xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
     ```
     - `Microsoft.Expression.Interactions`を参照追加すること
-        - `Microsoft.Expression.Interactions.dll`は、VS2017から個別コンポートネントにある`Blend for Visual Studio SDK`を選択してインストールする必要がある
+    - `Microsoft.Expression.Interactions.dll`は、VS2017から個別コンポートネントにある`Blend for Visual Studio SDK`を選択してインストールする必要がある
+
 
 ## トリガー
 
@@ -151,7 +152,7 @@ public string Name
 - PropertyChangedEventTrigger
 - StoryboardCompletedTrigger
 
-# アクション
+## アクション
 
 - InvokeCommandAction
 - CallMethodAction
@@ -161,12 +162,35 @@ public string Name
 - GoToStateAction
     - ビジュアル・ステート（外観状態）を変化させるアクション
 
-# ビヘイビア
+## ビヘイビア
 
 - FluidMoveBehavior 
 - MouseDragElementBehavior 
 - TranslateZoomRotateBehavior 
 
+
+# Microsoft.Xaml.Behaviors.Wpf
+
+- Blendのトリガー・アクション・ビヘイビアがOSS化され、nugetパッケージ（`Microsoft.Xaml.Behaviors.Wpf`）として提供されるようになったので、今後はこちらを利用した方が良い
+- Blend付属のものと名前空間が異なるので、`Microsoft.Xaml.Behaviors.Wpf`への置き換えにはある程度の変更が必要となる
+- 主な変更例
+    ```
+    # xaml
+    xmlns:i ="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+    
+    # namespace
+    System.Windows.Input
+    ```
+    ↓
+    ```
+    # xaml
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:ei="http://schemas.microsoft.com/xaml/behaviors"
+
+    # namespace
+    Microsoft.Xaml.Behaviors
+    ```
 
 # 参考
 
