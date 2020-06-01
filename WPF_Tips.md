@@ -191,6 +191,11 @@ public string Name
     # namespace
     Microsoft.Xaml.Behaviors
     ```
+- Prism7では、`Prism.Interactivity.InvokeCommandAction`は`System.Windows.Interactivity.TriggerAction<UIElement>`のサブクラスなので、`Prism`と`Microsoft.Xaml.Behaviors.Wpf`の併用には注意が必要
+    - Prism7を入れると、`System.Windows.Interactivity`がセットで追加される. 混合すると使えないというわけではないが、同名クラスが混在するので、使い分ける必要がある.
+    - Prism8では、`System.Windows.Interactivity.TriggerAction<UIElement>`のサブクラスになるっぽい（8.0.0.1740 preview版では既に変更されている）
+- `Microsoft.Xaml.Behaviors.Wpf`の適用は、Prism8の正式版リリース後の方が良いかもしれない
+    
 
 # 参考
 
