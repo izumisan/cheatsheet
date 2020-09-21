@@ -39,6 +39,10 @@ folder Folder
 frame Frame
 database DataBase
 cloud Cloud
+
+' リファレンスにはないけど、これらも使える
+artifact Artifact
+storage Storage
 @enduml
 '---------------------------------------
 @startuml cmp.1_parts_uml2
@@ -56,6 +60,10 @@ folder Folder
 frame Frame
 database DataBase
 cloud Cloud
+
+' リファレンスにはないけど、これらも使える
+artifact Artifact
+storage Storage
 @enduml
 '---------------------------------------
 @startuml cmp.2_note
@@ -76,4 +84,65 @@ note bottom of Bar {
     角カッコでも
     複数行記載できる
 }
+@enduml
+'---------------------------------------
+@startuml cmp.3_grouping
+package FooPackage {
+    [Component_1]
+}
+node FooNode {
+    [Component_2]
+}
+folder FooFolder {
+    [Component_3]
+}
+frame FooFrame {
+    [Component_4]
+}
+database FooDataBase {
+    [Component_5]
+}
+cloud FooCloud {
+    [Component_6]
+}
+@enduml
+'---------------------------------------
+@startuml cmp.4_arrow_1
+[Foo_1]
+[Foo_2]
+[Foo_3]
+
+Foo_1 - Foo_2
+Foo_2 . Foo_3
+@enduml
+'---------------------------------------
+@startuml cmp.4_arrow_2
+[Foo_1]
+[Foo_2]
+[Foo_3]
+
+Foo_1 -> Foo_2
+Foo_2 .> Foo_3
+@enduml
+'---------------------------------------
+@startuml cmp.4_arrow_3
+[Foo_1]
+[Foo_2]
+[Foo_3]
+
+Foo_1 --> Foo_2
+Foo_2 ..> Foo_3
+@enduml
+'---------------------------------------
+@startuml cmp.4_arrow_4
+[Foo]
+() right
+() left
+() up
+() down
+
+Foo -right-> right
+Foo -left-> left
+Foo .up.> up
+Foo .down.> down
 @enduml
