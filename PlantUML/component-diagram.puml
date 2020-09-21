@@ -1,4 +1,6 @@
+' component-diagraml.puml
 
+'---------------------------------------
 @startuml component_diagram
 package "Foo package" {
     component Foo
@@ -22,8 +24,9 @@ database "Baz Database" {
 IFoo --> FooData
 IBar --> BarData
 @enduml
+'---------------------------------------
+@startuml cmp.1_parts_uml1
 
-@startuml cmp.1_parts
 component Component_1
 [Component_2]
 
@@ -37,4 +40,40 @@ frame Frame
 database DataBase
 cloud Cloud
 @enduml
+'---------------------------------------
+@startuml cmp.1_parts_uml2
+skinparam componentStyle uml2
 
+component Component_1
+[Component_2]
+
+interface Interface_1
+() Interface_2
+
+package Package
+node Node
+folder Folder
+frame Frame
+database DataBase
+cloud Cloud
+@enduml
+'---------------------------------------
+@startuml cmp.2_note
+[Foo]
+note right of Foo: "note right of Foo"
+note left of Foo: "note left of Foo"
+note top of Foo: "note top of Foo"
+note bottom of Foo: "note bottom of Foo"
+
+[Bar]
+note right of Bar
+改行を
+含む
+ノート
+end note
+
+note bottom of Bar {
+    角カッコでも
+    複数行記載できる
+}
+@enduml
