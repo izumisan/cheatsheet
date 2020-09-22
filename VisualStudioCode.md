@@ -20,10 +20,11 @@
     - ファイル比較する時にも自動でプレビューが開くので、便利な場合と邪魔な場合がある
     - Markdown All in Oneで代用可能
 
-- Markdown PDF
+- ~~Markdown PDF~~
     - MarkdownからPDFを作成できる
     - 数式など、他の拡張機能を使っていると上手くPDF化できない
     - Markdown Preview Enhancedの方が対応範囲が広い
+    - Markdown Preview Enhancedで代用可能
 
 - ~~Markdown Checkboxes~~
     - Markdownでチェックボックスを表現できる
@@ -42,6 +43,7 @@
     - Graphvizやmermaid等、いろいろなダイアグラムに対応している
     - プレビュー画面はデフォルトのものとは別
     - [公式ドキュメント](https://shd101wyy.github.io/markdown-preview-enhanced/#/)が充実している 
+    - Google Chromeがインストールされているなら、PDFファイルも作成可能
 
 - Past Image
     - クリップボードに保存されたイメージをmarkdownに直接貼り付けるる（クリップボード画像のファイル保存＋markdownリンク作成）できる
@@ -75,6 +77,10 @@ Markdown関連で機能ごとに複数の拡張機能をいれたりしていた
 - PlantUML
     - テキストベースでUMLダイアグラムを作図できる
     - 要java
+- Draw.io Integraion
+    - Draw.ioの作図がVSCodeでできる
+    - オフライン環境に対応している
+    - svg, png にエクスポート可能
 - Polacode
     - ソースコードをきれいなキャプチャー画像として保存する
         1. コマンドパレットから`polacode`タブを起動する
