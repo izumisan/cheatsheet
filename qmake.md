@@ -90,6 +90,16 @@
 
 - ビルド後コマンド
 
+## QMAKE_PROJECT_DEPTH
+
+```
+QMAKE_PROJECT_DEPTH = 0
+```
+- proファイルからincludeされるpriファイルの階層（includeネスト）が深い場合やディレクトリ階層が複雑な場合、qmakeでよくわからないエラーに悩まされる場合がある
+- この場合、`QMAKE_PROJECT_DEPTH = 0` を指定すると、解消する
+- `QMAKE_PROJECT_DEPTH = 0` を指定すると、makefileには相対パスではなく絶対パスで出力されるようになる
+- [Undocumented QMake](https://wiki.qt.io/Undocumented_QMake) 参照
+
 ## QT_ARCH
 
 - ターゲットアーキテクチャ
