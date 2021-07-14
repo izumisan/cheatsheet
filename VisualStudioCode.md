@@ -54,7 +54,7 @@ Markdown関連で機能ごとに複数の拡張機能をいれたりしていた
 
 ## Git関連
 
-- Git History
+- ~~Git History~~
     - ロググラフを可視化する
 - Git Graph
     - ロググラフを可視化する
@@ -63,9 +63,28 @@ Markdown関連で機能ごとに複数の拡張機能をいれたりしていた
 - GitLens
     - デフォルト設定だといろいろと画面がうるさくなるので、設定をいじったほうが良い
 
+## CMake関連
+
+- CMake
+    - インテリセンス（コード補間）
+- CMake Tools
+    - configureやbuildが、コマンドやツールボタンから実行できる
+
 ## コーディング関連
 
 - EditorConfig for VS Code
+
+## 作図関連
+
+- PlantUML
+    - テキストベースでUMLダイアグラムを作図できる
+    - 要java
+- Draw.io Integraion
+    - Draw.ioの作図がVSCodeでできる
+    - オフライン環境に対応している
+    - svg, png にエクスポート可能
+- Markmap
+    - Markdownでマインドマップが作図できる
 
 ## その他
 
@@ -74,13 +93,6 @@ Markdown関連で機能ごとに複数の拡張機能をいれたりしていた
     - 地味にいい
 - Excel Viewer
     - csvファイルやxlsxファイルを表形式で表示する
-- PlantUML
-    - テキストベースでUMLダイアグラムを作図できる
-    - 要java
-- Draw.io Integraion
-    - Draw.ioの作図がVSCodeでできる
-    - オフライン環境に対応している
-    - svg, png にエクスポート可能
 - Polacode
     - ソースコードをきれいなキャプチャー画像として保存する
         1. コマンドパレットから`polacode`タブを起動する
